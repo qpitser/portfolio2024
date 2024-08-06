@@ -1,0 +1,1769 @@
+/* 언어설정 */
+@charset 'utf-8';
+
+/* 폰트
+font-family: "Lato", sans-serif;
+font-family: "Montserrat", sans-serif;
+
+*/
+
+/* 애니메이션 모음 */
+
+@keyframes ani1 {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(15deg);}
+    100% {transform: rotate(0deg);}
+
+}
+
+/* 전체설정 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+
+/* 메인설정 */
+header {
+    height: 100px;
+}
+
+header .main {
+    display: flex;
+    background-color: #05A8F5;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+header .main img {
+    height: 80px;
+    margin-left: 20px;
+}
+
+header .main nav {}
+
+header .main nav ul {
+    position: absolute;
+    display: flex;
+    width: 300px;
+    height: 80px;
+    margin-left: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .main nav ul li:hover {
+    font-weight: bold;
+}
+
+header .main nav ul li a {
+    font-size: 18px;
+    display: block;
+    padding: 5px;
+}
+
+/* 유틸설정 */
+
+header .util {
+    width: 300px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+}
+
+header .util img {
+    height: 50px;
+}
+
+header .util ul {
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+    height: 80px;
+    align-items: center;
+}
+
+header .util ul li {
+    margin-right: 30px;
+    color: #fff;
+}
+
+header .util ul li a {}
+
+header .util ul li span {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    text-align: center;
+    line-height: 2;
+}
+
+
+
+
+
+/* 세션1 설정 */
+/* 비디오 설정 */
+section:nth-child(1) {
+    width: 100%;
+    height: 100vh
+}
+
+section:nth-child(1) video {
+    width: 100%;
+    transform: translateY(-200px);
+}
+
+
+/* 세션2 설정 */
+
+section:nth-child(2) {
+    height: 740px;
+    background: linear-gradient(145deg, #05a8f5 50%, #000000 50%);
+}
+
+.info_wrap {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.info_wrap .txtBox {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_wrap .txtBox h2 {
+    font-size: 28px
+}
+
+.info_wrap .txtBox p {
+    margin: 20px 0;
+}
+
+.info_wrap .txtBox h3 {}
+
+.info_wrap .txtBox span {
+    font-size: 40px;
+}
+
+.info_wrap .imgBox {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+}
+
+.info_wrap .imgBox img {
+    margin: 20px 0;
+}
+
+/* 세션 3 설정 */
+section:nth-child(3) {
+    height: 740px;
+    background: linear-gradient(145deg, #05a8f5 50%, #000000 50%);
+    position: relative;
+}
+
+section>h2 {
+    text-align: center;
+}
+
+.view {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+
+/* 선수 이미지 설정 */
+.korea_inner .imgBox {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+.korea_inner .imgBox img {
+    width: 350px;
+    height: 350px;
+}
+
+/* 선수 소개 설정 */
+
+.korea_inner .txtBox {
+    position: absolute;
+    right: 20%;
+    bottom: 10%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.korea_inner .txtBox h2 {
+    font-size: 80px;
+}
+
+.korea_inner .txtBox p {
+    font-size: 32px;
+    line-height: 2;
+}
+
+.korea_inner .txtBox h3 {
+    font-size: 40px;
+}
+
+
+section .korea_inner {
+    display: flex;
+}
+
+section .korea_inner div:nth-child(3) {
+    display: none;
+}
+
+section .korea_inner div:nth-child(4) {
+    display: none;
+}
+
+section .korea_inner div:nth-child(5) {
+    display: none;
+}
+
+section .korea_inner div:nth-child(6) {
+    display: none;
+}
+
+section .korea_inner img {
+    border-radius: 15px;
+}
+
+
+
+/* 세션 4 설정 */
+section:nth-child(4) {}
+
+/* 비디오설정 */
+section:nth-child(4) video {
+    width: 100%;
+}
+
+/* 세션 5 설정 */
+section:nth-child(5) {
+    background-color: #303033;
+    color: #fff;
+}
+
+section:nth-child(5) h1 {
+    font-size: 240px;
+    text-align: center;
+    line-height: 1;
+}
+
+section:nth-child(5) p {
+    font-size: 18px;
+}
+
+section:nth-child(5)>p {
+    text-align: center;
+}
+
+
+.origin {
+    background-color: #303033;
+    margin-top: 20px;
+    width: 100%;
+    height: 1000px;
+    position: relative;
+}
+
+.origin h2 {
+    position: absolute;
+    top: 20px;
+    left: 18%;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+/* 에이드 설명 설정 */
+.help {
+    background-color: #0056b3;
+    position: relative;
+    left: 50%;
+    top: 10%;
+    margin-left: -550px;
+    width: 800px;
+    height: 80%;
+    display: flex;
+    border-radius: 60px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.help h2 {
+    color: #05A8F5;
+}
+
+.help h3 {
+    font-size: 32px;
+    line-height: 3;
+    width: 400px;
+    text-align: center;
+}
+
+.help p {
+    font-size: 20px;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+
+.help .txtBox {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.help .blast {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    margin-top: -250px;
+    animation: ani1 linear infinite 5s;
+}
+
+.help .txtBox .txtBox_inner {
+    width: 450px;
+    height: auto;
+    margin-left: 50px;
+    position: relative;
+    top: 50%;
+    margin-top: -200px;
+}
+
+.help_2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #561B58;
+    border-radius: 60px;
+    display: none;
+}
+
+.help_2 h2 {
+    color: #fff;
+    text-align: center;
+    width: 500px;
+}
+
+.help_2 h3 {
+    font-size: 32px;
+    line-height: 3;
+    width: 400px;
+    text-align: center;
+}
+
+.help_2 p {
+    font-size: 20px;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+
+.help_2 .blast {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    margin-top: -250px;
+    animation: ani1 linear infinite 5s;
+}
+
+
+.help_3 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 200%;
+    background-color: #C93242;
+    border-radius: 60px;
+    display: none;
+}
+
+.help_3 h2 {
+    color: #fff;
+    width: 500px;
+    text-align: center;
+}
+
+.help_3 h3 {
+    font-size: 32px;
+    line-height: 3;
+    width: 400px;
+    text-align: center;
+}
+
+.help_3 p {
+    font-size: 20px;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+
+
+
+/* 카테고리 설정 */
+
+.category {
+    background-color: #fff;
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    right: -40%;
+    border-radius: 60px;
+    top: 0;
+}
+
+.category h2 {
+    position: absolute;
+    left: 30px;
+    top: 5%;
+    font-size: 28px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-weight: bolder;
+    color: #000;
+    letter-spacing: 0;
+}
+
+/* 맛 선택 설정 */
+.flavor {
+    position: absolute;
+    left: 20px;
+    bottom: 30px;
+}
+
+.flavor p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    line-height: 2.5;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #D9D9D9;
+    display: block;
+    text-align: center;
+    color: #000;
+    cursor: pointer;
+}
+
+.flavor .mou.on {
+    background-color: #04a6f0;
+    color: #fff;
+}
+
+.flavor .gra.on {
+    background-color: #561b58;
+    color: #fff;
+}
+
+.flavor .fru.on {
+    background-color: #c93242;
+    color: #fff;
+}
+
+
+.flavor p:nth-child(1):hover {
+    color: #fff;
+    background-color: #04A6F0;
+}
+
+.flavor p:nth-child(2):hover {
+    color: #fff;
+    background-color: #561B58;
+}
+
+.flavor p:nth-child(3):hover {
+    color: #fff;
+    background-color: #C93242;
+}
+
+
+
+/* 세션 6 설정 */
+
+/* 연혁설정 */
+.wrap_year {
+    margin-top: 200px;
+    background-color: #d9d9d9;
+    position: relative;
+    width: 100%;
+    height: 4000px;
+    overflow-x: hidden;
+}
+
+.wrap_year img {
+    width: 250px;
+    height: 250px;
+}
+
+.wrap_year h2 {
+    font-size: 32px;
+    line-height: 3;
+    color: #003366;
+}
+
+.wrap_year h3 {
+    color: #05a8f5;
+    font-size: 40px;
+}
+
+.left1 h3 {
+    position: absolute;
+    right: 50px;
+}
+
+.right2 h3 {
+    position: absolute;
+    left: 50px;
+}
+
+.left3 h3 {
+    position: absolute;
+    right: 50px;
+}
+
+.right4 h3 {
+    position: absolute;
+    left: 50px;
+}
+
+.left5 h3 {
+    position: absolute;
+    right: 50px;
+}
+
+.wrap_year p {
+    font-size: 20px;
+    line-height: 2;
+}
+
+.center {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background-color: #000000;
+    left: 50%;
+    top: 0;
+    z-index: 8;
+}
+
+.left1 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 600px;
+    left: 0;
+}
+
+.right1 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    top: 600px;
+    right: 0;
+}
+
+.left2 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 1200px;
+    left: 0;
+}
+
+.right2 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 1200px;
+    right: 0;
+}
+
+.right2 img {
+    width: 100px;
+}
+
+.left3 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 1800px;
+    left: 0;
+}
+
+.right3 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 1800px;
+    right: 0;
+}
+
+.left4 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 2400px;
+    left: 0;
+}
+
+.right4 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 2400px;
+    right: 0;
+}
+
+.right4 img {
+    width: 100px;
+}
+
+.left5 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 3000px;
+    left: 0;
+}
+
+.right5 {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    top: 3000px;
+    right: 0;
+}
+
+.left1, .left2, .left3, .left4, .left5,
+        .right1, .right2, .right3, .right4, .right5 {
+            opacity: 0; /* 초기 불투명도 */
+            transition: all 2s ease;
+        }
+
+.left1 , .left2 , .left3 , .left4 , .left5 {left: -100%;}
+
+.right1 , .right2 , .right3 , .right4 , .right5 {right: -100%;}
+
+.animate-left {
+    left: 0;
+    opacity: 1;
+}
+
+
+.animate-right {
+    right: 0;
+    opacity: 1;
+}
+
+
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #003366;
+    top: 0;
+    left: -20px;
+    top: 50%;
+    margin-top: -20px;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle2 {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #04A6F0;
+    top: 0;
+    left: -20px;
+    top: 50%;
+    z-index: 10;
+}
+
+.line {
+    width: 90px;
+    height: 10px;
+    background-color: #000000;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: 15px;
+    z-index: 3;
+
+}
+
+.line_left {
+    width: 90px;
+    height: 10px;
+    background-color: #000000;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border-radius: 15px;
+    z-index: 3;
+
+
+}
+
+/* 가로 오토슬라이드 설정 */
+
+.slide {
+    position: relative;
+}
+
+.slide_img {
+    width: 100%;
+    height: 800px;
+}
+
+.slide_img ul {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide_img li {
+    position: absolute;
+    width: 100%;
+    height: 650px;
+    top: 50%;
+    margin-top: -325px;
+    left: 100%;
+    background-size: cover;
+}
+
+.slide .slide_img li:nth-child(1) {
+    background-image: url(img/main1.jpg);
+    left: 0;
+    background-position: center;
+}
+
+.slide .slide_img li:nth-child(2) {
+    background-image: url(img/main2.jpg);
+    background-position: center;
+}
+
+.slide .slide_img li:nth-child(3) {
+    background-image: url(img/main3.jpg);
+    background-position: top center;
+}
+
+.slide .slide_img li:nth-child(4) {
+    background-image: url(img/main4.jpg);
+    background-position: center;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -150px;
+}
+
+.btn ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn li {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #fff;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    text-align: center;
+    line-height: 2;
+    margin: 20px 0;
+    display: block;
+    animation: float infinite 2s
+}
+
+
+.btn li.on {
+    background-color: #04A6F0;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 태극전사 맛 소개 설정 */
+section:nth-child(8) {
+    height: 2500px;
+    color: #fff;
+}
+
+section:nth-child(8) h2 {
+    font-size: 40px;
+}
+
+section:nth-child(8) h3 {
+    font-size: 40px;
+    letter-spacing: 10px;
+    line-height: 2.5;
+}
+
+section:nth-child(8) p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+
+.shop {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/* 장바구니 버튼 설정 */
+.buy {
+    width: 200px;
+    line-height: 3;
+    height: 50px;
+    background-color: #003366;
+    display: inline-block;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.more {
+    width: 200px;
+    height: 50px;
+    background-color: #ff4c4c;
+    line-height: 3;
+    display: inline-block;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 마운틴 베리 블라스트 장바구니 버튼 설정 */
+
+.shop_mountain {
+    display: flex;
+}
+
+.buy_mountain {
+    width: 200px;
+    line-height: 3;
+    height: 50px;
+    background-color: #003366;
+    display: inline-block;
+    border-radius: 30px;
+    margin: 0 50px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.more_mountain {
+    width: 200px;
+    height: 50px;
+    background-color: #ff4c4c;
+    line-height: 3;
+    display: inline-block;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+/* 패트병 이미지 설정 */
+.pat {
+    width: 100px;
+    height: 250px;
+}
+
+/* 선수 이미지 설정 */
+.warrior {
+    width: 350px;
+    height: auto;
+}
+
+.info {}
+
+.info .info_bg {
+    width: 100%;
+    height: 500px;
+    background-color: red;
+    position: relative;
+    margin: 300px 0;
+}
+
+
+/* 포도맛 설정 */
+.info .info_bg .grape {
+    display: flex;
+    background: linear-gradient(90deg, #561a58 0%, #5c5c5c 100%);
+    width: 100%;
+    height: 100%;
+}
+
+.info .info_bg .grape .txtBox {
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+    left: 10%;
+}
+
+.info .info_bg .grape .imgBox {
+    position: absolute;
+    right: 5%;
+    top: -15%;
+}
+
+.info .info_bg .grape .grape_pat {
+    position: absolute;
+    right: 50%;
+    margin-right: -300px;
+    bottom: -20%;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #561b58;
+    transition: all 0.6s;
+}
+
+.info .info_bg .grape .grape_pat:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+
+/* 과일맛 설정 */
+.info .info_bg .fruit {
+    display: flex;
+    background: linear-gradient(270deg, #c93242 0%, #631921 100%);
+    width: 100%;
+    height: 100%;
+}
+
+.info .info_bg .fruit .txtBox {
+    position: absolute;
+    top: 0;
+    right: 10%;
+}
+
+.info .info_bg .fruit .imgBox {
+    position: absolute;
+    left: 5%;
+    top: -30%;
+}
+
+.info .info_bg .fruit .fruit_pat {
+    position: absolute;
+    left: 30%;
+    bottom: -20%;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #C93242;
+    transition: all 0.6s;
+}
+
+.info .info_bg .fruit .fruit_pat:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+
+/* 마운틴 맛 설정 */
+.info .info_bg .mountain {
+    display: flex;
+    background: linear-gradient(90deg, #04a6f0 0%, #025f8a 100%);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.info .info_bg .mountain .txtBox {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+.info .info_bg .mountain .imgBox {
+    position: absolute;
+    right: 5%;
+    top: -10%;
+}
+
+.info .info_bg .mountain .mountain_pat {
+    position: absolute;
+    right: 30%;
+    bottom: -20%;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #04A6F0;
+    transition: all 0.6s;
+}
+
+.info .info_bg .mountain .mountain_pat:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+footer {
+    width: 100%;
+    background-color: #666;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 서브페이지 설정 */
+.subpage {
+    color: #000;
+}
+
+.subpage section {
+    background: none;
+}
+
+.subpage .sale_inner {
+    margin-top: 30px;
+}
+
+/* 빵부스러기 설정 */
+
+.subpage .bread ul {
+    display: flex;
+}
+
+.subpage .bread li {
+    color: #000;
+}
+
+.subpage .bread li a {
+    display: inline-block;
+    color: #888;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.subpage .bread li:nth-child(2) a {
+    color: #000;
+}
+
+.subpage .bread li::after {
+    content: '\003e';
+    margin: 0 10px;
+    color: #888;
+}
+
+.subpage .bread li:last-child::after {
+    content: '';
+}
+
+/* 좌측 이미지 설정 */
+
+.subpage .pro_box {
+    display: flex;
+    width: 100%;
+    height: 800px;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 30px;
+}
+
+.subpage .pro_img {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.subpage .pro_img .pro_img2 {
+    border: 1px solid #999;
+    width: 500px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    align-items: center;
+}
+
+.subpage .pro_img .pro_bigimg {
+    width: 150px;
+    height: 400px;
+}
+
+
+.subpage .pro_smallimg {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    margin-top: -20px;
+}
+
+.subpage .pro_smallimg img {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+}
+
+.subpage .pro_smallimg div {
+    border: 1px solid #999;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+
+/* 서브페이지 박스설정 */
+
+.subpage .info {
+    width: 50%;
+    height: 600px;
+    position: relative;
+    top: 50%;
+    margin-top: -300px;
+    margin-right: 50px;
+}
+
+.subpage .more_box {
+    width: 100%;
+    height: 900px;
+    position: relative;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 우측 제품소개 설정 */
+.subpage .info h3 {
+    font-size: 24px;
+}
+
+.subpage .info p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.subpage .info .star {
+    margin-top: 10px;
+}
+
+
+.subpage .info .flavor_choose {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-top: 1px solid;
+}
+
+.subpage .info .flavor_choose div {
+    width: 100px;
+    height: 50px;
+    background-color: #d9d9d9;
+    border-radius: 30px;
+    margin: 40px 10px;
+    text-align: center;
+    line-height: 3;
+}
+
+.subpage .info .flavor_choose div:nth-child(1) {
+    width: 150px;
+}
+
+.subpage .info .flavor_choose div:nth-child(3) {
+    width: 150px;
+}
+
+.subpage .info .flavor_choose div:nth-child(5) {
+    width: 150px;
+}
+
+.subpage .info .flavor_choose div:hover {
+    background-color: #04A6F0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.subpage .info .flavor_choose div.on {
+    background-color: #04A6F0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.buy_list {
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.buy_list .buy_img {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    border: 0.5px solid #d9d9d9;
+    align-items: center;
+}
+
+.buy_list img {
+    width: 25px;
+
+    height: 70px;
+}
+
+.subpage .info .buy_info {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.subpage .info .buy_info h4 {
+    position: absolute;
+    left: 100px;
+}
+
+.subpage .info .buy_info .info_price {
+    position: absolute;
+    left: 100px;
+    top: 50px;
+}
+
+.subpage .info .buy_cart {
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    background-color: #FAF3F3;
+}
+
+.subpage .info .buy_cart_inner {
+    width: 50%;
+    height: 100%;
+}
+
+.subpage .info .buy_cart_inner p {
+    position: relative;
+    font-weight: bold;
+    left: 20px;
+    top: 0;
+}
+
+.subpage .info .buy_cart_inner .buy_border {
+    border: 1px solid #000;
+    position: relative;
+    width: 400px;
+    left: 20px;
+    top: 20px;
+}
+
+.subpage .info .buy_cart_inner .buy_btn {
+    width: 100px;
+    height: 30px;
+    background-color: #fff;
+    line-height: 2;
+    position: relative;
+    margin: 10px 10px;
+    display: flex;
+    left: 20px;
+    top: 20px;
+    justify-content: space-between;
+}
+
+.subpage .info .buy_cart_inner .buy_btn span {
+    height: 100%;
+    width: 30px;
+    background-color: #bfb8b8;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    cursor: pointer;
+}
+
+.subpage .info .buy_cart_inner .buy_border_center {
+    width: 1px;
+    height: 80%;
+    background-color: #d9d9d9;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    margin-top: -50px;
+}
+
+.subpage .info .buy_cart_inner2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subpage .info .buy_cart_inner2 p {
+    font-weight: bold;
+    position: relative;
+    width: 80%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subpage .info .buy_cart_inner2 span {
+    font-size: 20px;
+    color: #d52d3e;
+    margin-top: -5px;
+}
+
+.subpage .info .buy_cart_inner2 .buy_btn {
+    width: 80%;
+    background-color: #d9d9d9;
+    line-height: 2;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.subpage .info .buy_cart_inner2 .heart_plus {
+    display: flex;
+    width: 80%;
+    font-weight: bold;
+    line-height: 2;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.subpage .info .buy_cart_inner2 .heart_plus i {
+    margin-right: 5px;
+}
+
+.subpage .info .buy_cart_inner2 .heart {
+    width: 40%;
+    height: 100%;
+    background-color: #d9d9d9;
+    margin-right: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.subpage .info .buy_cart_inner2 .plus {
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
+
+/* 성분표시 설정 */
+.subpage .ingredi {
+    width: 100%;
+    height: 200px;
+}
+
+.subpage .ingredi div ul {
+    margin-top: 30px;
+}
+
+.subpage .ingredi div ul li {
+    list-style: circle;
+    margin-left: 20px;
+}
+
+/* 유사제품 설정 */
+
+/* 여러가지 맛 */
+.subpage .more_box h2 {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.subpage .sub_flavor {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpage .sub_flavor div {
+    width: 20%;
+    height: 250px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.subpage .sub_flavor img {
+    width: 100px;
+    height: 200px;
+}
+
+.subpage .sub_flavor .flavor_border {
+    width: 1px;
+    height: 100px;
+    background-color: #d9d9d9;
+    top: 20px;
+    right: -20px;
+    position: absolute;
+}
+
+.subpage .sub_flavor .flavor_box {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    border: 1px solid #d9d9d9;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpage .sub_flavor a {
+    text-align: center;
+    width: 250px;
+}
+
+.subpage .sub_flavor p {
+    color: #000;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.subpage .sub_flavor h3 {
+    color: #000;
+    margin-top: 20px;
+    text-align: left;
+    font-weight: bold;
+    color: #d52d3e;
+}
+
+.subpage .sub_flavor span {
+    position: absolute;
+    right: 50%;
+    margin-right: -150px;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: #d9d9d9;
+    font-size: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.9;
+    cursor: pointer
+}
+
+
+/* 제로 */
+.subpage .sub_zero {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpage .sub_zero .zero_border {
+    width: 1px;
+    height: 100px;
+    background-color: #d9d9d9;
+    right: -15px;
+    top: 50%;
+    margin-top: -80px;
+    position: absolute;
+}
+
+.subpage .sub_zero .zero_box {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    border: 1px solid #d9d9d9;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpage .sub_zero div {
+    width: 20%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    position: relative;
+}
+
+.subpage .sub_zero img {
+    width: 100px;
+    height: 200px;
+}
+
+.subpage .sub_zero a {
+    text-align: center;
+    width: 250px;
+}
+
+.subpage .sub_zero h3 {
+    color: #000;
+
+    margin-top: 20px;
+    text-align: left;
+    font-weight: bold;
+    color: #d52d3e;
+}
+
+.subpage .sub_zero p {
+    color: #000;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.subpage .sub_zero span {
+    position: absolute;
+    right: 50%;
+    margin-right: -150px;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: #d9d9d9;
+    font-size: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.9;
+    cursor: pointer;
+}
+
+/* 장바구니 팝업설정 */
+
+.subpage .shop {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.subpage .product {
+    width: 500px;
+    height: 500px;
+    background-color: #05A8F5;
+    overflow-x: hidden;
+}
+
+.subpage .product h2 {
+    color: #000;
+}
+
+.subpage .product .list img {
+    width: 50px;
+    margin-left: 10px;
+    height: 100px;
+}
+
+.subpage .product .list div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.subpage .btn {position: absolute;
+    top: 80%;}
+
+.subpage .btn button {width: 150px;
+    height: 30px;
+    background-color: #003366;}
+
+/* 상세정보 설정 */
+
+.subpage .sub_info {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    left: 200px;
+    height: 50px;
+    background-color: green;
+    display: flex;
+    margin-top: 100px;
+    background-color: #CCCFD3;
+    font-weight: bold;
+    color: #fff;
+}
+
+.subpage .sub_info div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 3;
+    cursor: pointer;
+}
+
+.subpage .sub_info div:hover {
+    background-color: #145290;
+}
+
+.subpage .sub_info div.on {
+    background-color: #145290;
+}
+
+
+/* 제품 상세설명 설정 */
+
+.subpage .introduce {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subpage .introduce img {
+    width: 500px;
+}
+
+
+/* 미디어 쿼리 구간설정 --------------------------------------------------------------------------------------- */
+
+@media(min-width:1280px) {
+
+    .main,
+    .info_inner,
+    .info,
+    .korea_inner,
+    .origin,
+    .wrap_year,
+    .slide {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}

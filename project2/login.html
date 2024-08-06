@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 네이버로그인 연결 -->
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+        charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        vertical-align: bottom;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    /* 메인설정 */
+    header {
+        height: 100px;
+    }
+
+    header .main {
+        display: flex;
+        background-color: #05A8F5;
+        height: 100px;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    header .main img {
+        height: 100px;
+        margin-left: 20px;
+    }
+
+    header .main nav {}
+
+    header .main nav ul {
+        position: absolute;
+        display: flex;
+        width: 300px;
+        height: 100px;
+        margin-left: 50px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .main nav ul li {}
+
+    header .main nav ul li a {
+        font-size: 18px;
+        display: block;
+        padding: 5px;
+    }
+
+    /* 유틸설정 */
+
+    header .util {
+        width: 300px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+    }
+
+    header .util img {
+        height: 50px;
+    }
+
+    header .util ul {
+        display: flex;
+        justify-content: center;
+        margin-right: 50px;
+        height: 100px;
+        align-items: center;
+    }
+
+    header .util ul li {
+        margin-right: 30px;
+        color: #fff;
+    }
+
+    header .util ul li a {}
+
+
+
+    /* 로그인페이지 설정 */
+    .loginpage {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .loginpage img {
+        position: relative;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: -100px;
+        top: 5%;
+    }
+
+    .login {
+        position: relative;
+        top: 50%;
+        margin-top: -400px;
+        left: 50%;
+        margin-left: -250px;
+        width: 500px;
+        height: 500px;
+        border-radius: 15px;
+        border: 1px solid #d9d9d9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login .id {
+        position: relative;
+        top: -70px;
+    }
+
+    .login .password {
+        position: relative;
+        top: -50px;
+    }
+
+    .login input {
+        width: 400px;
+        height: 50px;
+        padding: 0 25px;
+        border-radius: 5px;
+        border: 1px solid #e5e8eb
+    }
+
+    .login h3 {
+        font-size: 16px;
+        position: relative;
+    }
+
+    .login span {
+        display: inline;
+    }
+
+    .login .login_button {
+        width: 450px;
+        height: 60px;
+        position: relative;
+        top: 0;
+    }
+
+    .login .find {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-top: 10px;
+        width: 450px;
+    }
+
+    .login .find a {
+        color: #000;
+    }
+
+    .login .login_button button {
+        width: 100%;
+        height: 100%;
+        background-color: #05A8F5;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .login .google button {
+        width: 450px;
+        height: 40px;
+        border: 1px solid #d9d9d9;
+        background-color: #fff;
+        position: relative;
+        cursor: pointer;
+        top: 50px;
+    }
+
+    .login .naver button {
+        width: 450px;
+        height: 40px;
+        background-color: #fff;
+        border: 1px solid #03C75A;
+        position: relative;
+        cursor: pointer;
+        top: 60px;
+    }
+
+    .login .naver_id {
+        width: 450px;
+        height: 40px;
+        background-color: #03C75A;
+        position: relative;
+        font-size: 14px;
+        color: #fff;
+        top: 30px;
+        text-align: center;
+        line-height: 3;
+    }
+
+    .login .wrap {
+        width: 450px;
+        height: 40px;
+        position: relative;
+        top: 70px;
+        z-index: 2;
+        left: 0;
+    }
+
+    .login .wrap img {position: relative;
+        left: 50%;
+        margin-left: -225px;}
+
+</style>
+
+
+<body>
+    <header>
+        <div class="main">
+            <h1><a href="index.html"><img src="img/logo_kor.png" alt=""></a></h1>
+            <nav>
+                <ul>
+                    <a href="">
+                        <li>Original</li>
+                    </a>
+                    <a href="">
+                        <li>ZERO</li>
+                    </a>
+                    <a href="">
+                        <li>SOUR</li>
+                    </a>
+                </ul>
+            </nav>
+            <div class="util">
+                <ul>
+                    <li><a href=""><img src="img/Search.png" alt=""></a></li>
+                    <li><a href="login.html"><img src="img/Male User.png" alt=""></a></li>
+                    <li><a href=""><img src="img/Shopping Cart.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="loginpage">
+        <a href="index.html"><img src="img/logo_kor.png" alt=""></a>
+        <div class="login">
+            <div class="id"><input type="text" placeholder="아이디"></div>
+            <div class="password"><input type="text" placeholder="비밀번호"></div>
+            <div class="login_button"><button>로그인</button></div>
+            <div class="find"><a href="">아이디/비밀번호 찾기</a><a href="">회원가입</a></div>
+            <div class="google"><button>구글계정으로 로그인</button></div>
+            <!-- 네이버 로그인 버튼 노출 영역 -->
+            <div class="wrap">
+                <div id="naver_id_login">
+                </div>
+
+            </div>
+            <DIV class="naver_id">네이버 아이디로 로그인</DIV>
+        </div>
+</body>
+<!-- //네이버 로그인 버튼 노출 영역 -->
+<script type="text/javascript">
+    var naver_id_login = new naver_id_login("UCXYiSvahzmovFgcZCYW", "http://qpitser.dothome.co.kr");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("green", 1, 40);
+    naver_id_login.setDomain("YOUR_SERVICE_URL");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
+</script>
+
+</html>

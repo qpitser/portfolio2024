@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 전체설정 */
+* {margin: 0;
+    padding: 0;}
+img {vertical-align: bottom;}
+a {text-decoration: none;
+    color: #fff;}
+ul, ol {list-style: none;}
+body {font-family: "Lato", sans-serif;}
+
+
+
+/* 메인설정 */
+header {height: 100px;}
+
+header .main {display: flex;
+    background-color:#05A8F5;
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;}
+
+header .main img {height: 100px;
+    margin-left: 20px;}
+
+header .main nav {}
+
+header .main nav ul {position: absolute;
+    display: flex;
+    width: 300px;
+    height: 100px;
+    margin-left: 50px;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+header .main nav ul li {
+}
+
+header .main nav ul li a {font-size: 18px;
+    display: block;
+    padding: 5px;}
+
+/* 유틸설정 */
+
+header .util {width: 300px;
+    height: 100px;
+    position: absolute;
+    right: 0;}
+
+header .util img {height: 50px;}
+
+header .util ul {display: flex;
+    justify-content: center;
+    margin-right: 50px;
+    height: 100px;
+    align-items: center;}
+
+header .util ul li {margin-right: 30px;
+color: #fff;}
+
+header .util ul li a {}
+
+video {height: 100%;}
+
+</style>
+
+<body>
+
+    <header>
+        <div class="main">
+            <h1><img src="img/logo_kor.png" alt=""></h1>
+            <nav>
+                <ul>
+                    <a href=""><li>Original</li></a>
+                    <a href=""><li>ZERO</li></a>
+                    <a href=""><li>SOUR</li></a>
+                </ul>
+            </nav>
+            <div class="util">
+                <ul>
+                    <li><a href=""><img src="img/Search.png" alt=""></a></li>
+                    <li><a href="login.html"><img src="img/Male User.png" alt=""></a></li>
+                    <li><a href=""><img src="img/Shopping Cart.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+    <video autoplay loop muted>
+        <source src="img/video2.mp4" type="video/mp4">
+    </video>
+</section>
+</body>
+</html>
+
+
