@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- 제이쿼리 cdn 연결 -->
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery-3.7.1.min.js"></script>
+<!-- 외부스크립트 연결 -->
+<script src="js.js"></script>
+<!-- 폰트어썸 cdn연결 -->
+<script src="https://kit.fontawesome.com/ed9c86e28a.js" crossorigin="anonymous"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        vertical-align: bottom;
+        width: 50px;
+        height: 100px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    /* 메인설정 */
+    header {
+        height: 100px;
+    }
+
+    header .main {
+        display: flex;
+        background-color: #0072BC;
+        height: 80px;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    header .main img {
+        height: 80px;
+        margin-left: 20px;
+    }
+
+    header .main .logo {
+        width: 130px;
+    }
+
+    header .main nav {}
+
+    header .main nav ul {
+        position: absolute;
+        display: flex;
+        width: 300px;
+        height: 80px;
+        margin-left: 50px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .main nav ul li:hover {
+        font-weight: bold;
+    }
+
+    header .main nav ul li a {
+        font-size: 18px;
+        display: block;
+        padding: 5px;
+    }
+
+    /* 유틸설정 */
+
+    header .util {
+        width: 300px;
+        height: 80px;
+        position: absolute;
+        right: 0;
+    }
+
+    header .util img {
+        height: 50px;
+    }
+
+    header .util ul {
+        display: flex;
+        justify-content: center;
+        margin-right: 50px;
+        height: 80px;
+        align-items: center;
+    }
+
+    header .util ul li {
+        margin-right: 30px;
+        color: #fff;
+    }
+
+    header .util ul li a {}
+
+    header .util ul li span {
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        right: 25px;
+        top: 10px;
+        text-align: center;
+        line-height: 2;
+    }
+
+
+    /* 서브페이지 설정 */
+    .subpage {
+        color: #000;
+    }
+
+    .subpage section {
+        background: none;
+    }
+
+    .subpage .sale_inner {
+        margin-top: 30px;
+    }
+
+    /* 빵부스러기 설정 */
+
+    .subpage .bread ul {
+        display: flex;
+    }
+
+    .subpage .bread li {
+        color: #000;
+    }
+
+    .subpage .bread li a {
+        display: inline-block;
+        color: #888;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .subpage .bread li:nth-child(2) a {
+        color: #000;
+    }
+
+    .subpage .bread li::after {
+        content: '\003e';
+        margin: 0 10px;
+        color: #888;
+    }
+
+    .subpage .bread li:last-child::after {
+        content: '';
+    }
+
+    /* 좌측 이미지 설정 */
+
+    .subpage .pro_box {
+        display: flex;
+        width: 100%;
+        height: 800px;
+        border-bottom: 1px solid #d9d9d9;
+        padding-bottom: 30px;
+    }
+
+    .subpage .pro_img {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .subpage .pro_img .pro_img2 {
+        border: 1px solid #999;
+        width: 500px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        height: 500px;
+        align-items: center;
+    }
+
+    .subpage .pro_img .pro_bigimg {
+        width: 150px;
+        height: 400px;
+    }
+
+
+    .subpage .pro_smallimg {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 10%;
+        top: 20%;
+        margin-top: -20px;
+    }
+
+    .subpage .pro_smallimg img {
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+    }
+
+    .subpage .pro_smallimg div {
+        border: 1px solid #999;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        margin: 10px 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+    }
+
+
+    /* 서브페이지 박스설정 */
+
+    .subpage .info {
+        width: 50%;
+        height: 600px;
+        position: relative;
+        top: 50%;
+        margin-top: -300px;
+        margin-right: 50px;
+    }
+
+    .subpage .more_box {
+        width: 100%;
+        height: 900px;
+        position: relative;
+        border-bottom: 1px solid #d9d9d9;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 우측 제품소개 설정 */
+    .subpage .info h3 {
+        font-size: 24px;
+    }
+
+    .subpage .info p {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .subpage .info .star {
+        margin-top: 10px;
+    }
+
+
+    .subpage .info .flavor_choose {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        border-top: 1px solid;
+    }
+
+    .subpage .info .flavor_choose div {
+        width: 100px;
+        height: 50px;
+        background-color: #d9d9d9;
+        border-radius: 30px;
+        margin: 40px 10px;
+        text-align: center;
+        line-height: 3;
+    }
+
+    .subpage .info .flavor_choose div:nth-child(1) {
+        width: 150px;
+    }
+
+    .subpage .info .flavor_choose div:nth-child(3) {
+        width: 150px;
+    }
+
+    .subpage .info .flavor_choose div:nth-child(5) {
+        width: 150px;
+    }
+
+    .subpage .info .flavor_choose div:hover {
+        background-color: #04A6F0;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .subpage .info .flavor_choose div.on {
+        background-color: #04A6F0;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .buy_list {
+        width: 100%;
+        height: 200px;
+        margin-top: 10px;
+        position: relative;
+    }
+
+    .buy_list .buy_img {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        border: 0.5px solid #d9d9d9;
+        align-items: center;
+    }
+
+    .buy_list img {
+        width: 25px;
+
+        height: 70px;
+    }
+
+    .subpage .info .buy_info {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .subpage .info .buy_info h4 {
+        position: absolute;
+        left: 100px;
+    }
+
+    .subpage .info .buy_info .info_price {
+        position: absolute;
+        left: 100px;
+        top: 50px;
+    }
+
+    .subpage .info .buy_cart {
+        width: 100%;
+        height: 120px;
+        margin-top: 10px;
+        position: relative;
+        display: flex;
+        background-color: #FAF3F3;
+    }
+
+    .subpage .info .buy_cart_inner {
+        width: 50%;
+        height: 100%;
+    }
+
+    .subpage .info .buy_cart_inner p {
+        position: relative;
+        font-weight: bold;
+        left: 20px;
+        top: 0;
+    }
+
+    .subpage .info .buy_cart_inner .buy_border {
+        border: 1px solid #000;
+        position: relative;
+        width: 400px;
+        left: 20px;
+        top: 20px;
+    }
+
+    .subpage .info .buy_cart_inner .buy_btn {
+        width: 100px;
+        height: 30px;
+        background-color: #fff;
+        line-height: 2;
+        position: relative;
+        margin: 10px 10px;
+        display: flex;
+        left: 20px;
+        top: 20px;
+        justify-content: space-between;
+    }
+
+    .subpage .info .buy_cart_inner .buy_btn span {
+        height: 100%;
+        width: 30px;
+        background-color: #bfb8b8;
+        text-align: center;
+        font-weight: bold;
+        display: block;
+        cursor: pointer;
+    }
+
+    .subpage .info .buy_cart_inner .buy_border_center {
+        width: 1px;
+        height: 80%;
+        background-color: #d9d9d9;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        margin-top: -50px;
+    }
+
+    .subpage .info .buy_cart_inner2 {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subpage .info .buy_cart_inner2 p {
+        font-weight: bold;
+        position: relative;
+        width: 80%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .subpage .info .buy_cart_inner2 span {
+        font-size: 20px;
+        color: #d52d3e;
+        margin-top: -5px;
+    }
+
+    .subpage .info .buy_cart_inner2 .buy_btn {
+        width: 80%;
+        background-color: #d9d9d9;
+        line-height: 2;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .subpage .info .buy_cart_inner2 .heart_plus {
+        display: flex;
+        width: 80%;
+        font-weight: bold;
+        line-height: 2;
+        height: 30px;
+        margin-top: 10px;
+    }
+
+    .subpage .info .buy_cart_inner2 .heart_plus i {
+        margin-right: 5px;
+    }
+
+    .subpage .info .buy_cart_inner2 .heart {
+        width: 40%;
+        height: 100%;
+        background-color: #d9d9d9;
+        margin-right: 80px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .subpage .info .buy_cart_inner2 .plus {
+        width: 40%;
+        height: 100%;
+        text-align: center;
+        background-color: #d9d9d9;
+        cursor: pointer;
+    }
+
+
+    /* 성분표시 설정 */
+    .subpage .ingredi {
+        width: 100%;
+        height: 200px;
+    }
+
+    .subpage .ingredi div ul {
+        margin-top: 30px;
+    }
+
+    .subpage .ingredi div ul li {
+        list-style: circle;
+        margin-left: 20px;
+    }
+
+    /* 유사제품 설정 */
+
+    /* 여러가지 맛 */
+    .subpage .more_box h2 {
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .subpage .sub_flavor {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subpage .sub_flavor div {
+        width: 20%;
+        height: 250px;
+        margin-left: 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .subpage .sub_flavor img {
+        width: 100px;
+        height: 200px;
+    }
+
+    .subpage .sub_flavor .flavor_border {
+        width: 1px;
+        height: 100px;
+        background-color: #d9d9d9;
+        top: 20px;
+        right: -20px;
+        position: absolute;
+    }
+
+    .subpage .sub_flavor .flavor_box {
+        width: 100%;
+        height: 250px;
+        display: flex;
+        border: 1px solid #d9d9d9;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subpage .sub_flavor a {
+        text-align: center;
+        width: 250px;
+    }
+
+    .subpage .sub_flavor p {
+        color: #000;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .subpage .sub_flavor h3 {
+        color: #000;
+        margin-top: 20px;
+        text-align: left;
+        font-weight: bold;
+        color: #d52d3e;
+    }
+
+    .subpage .sub_flavor span {
+        position: absolute;
+        right: 50%;
+        margin-right: -150px;
+        top: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: #d9d9d9;
+        font-size: 24px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.9;
+        cursor: pointer
+    }
+
+
+    /* 제로 */
+    .subpage .sub_zero {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subpage .sub_zero .zero_border {
+        width: 1px;
+        height: 100px;
+        background-color: #d9d9d9;
+        right: -15px;
+        top: 50%;
+        margin-top: -80px;
+        position: absolute;
+    }
+
+    .subpage .sub_zero .zero_box {
+        width: 100%;
+        height: 250px;
+        display: flex;
+        border: 1px solid #d9d9d9;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subpage .sub_zero div {
+        width: 20%;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 30px;
+        position: relative;
+    }
+
+    .subpage .sub_zero img {
+        width: 100px;
+        height: 200px;
+    }
+
+    .subpage .sub_zero a {
+        text-align: center;
+        width: 250px;
+    }
+
+    .subpage .sub_zero h3 {
+        color: #000;
+
+        margin-top: 20px;
+        text-align: left;
+        font-weight: bold;
+        color: #d52d3e;
+    }
+
+    .subpage .sub_zero p {
+        color: #000;
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .subpage .sub_zero span {
+        position: absolute;
+        right: 50%;
+        margin-right: -150px;
+        top: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: #d9d9d9;
+        font-size: 24px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.9;
+        cursor: pointer;
+    }
+
+    /* 장바구니 팝업설정 */
+
+    .subpage .shop {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+    }
+
+    .subpage .product {
+        width: 1000px;
+        height: 700px;
+        background-color: #fff;
+        overflow-x: hidden;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .subpage .product h2 {
+        color: #000;
+        font-size: 32px;
+        margin: 20px;
+    }
+
+    .subpage .product h3 {
+        display: inline;
+    }
+
+    .subpage .product .list div img {
+        position: relative;
+        left: 0;
+        width: 50px;
+        margin-left: 10px;
+        height: 100px;
+    }
+
+    .subpage .product .list div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100px;
+        padding: 20px 0;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .subpage .product .product_title {
+        display: flex;
+        margin: 20px 0;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+    }
+
+    .subpage .product .product_title .product_info {
+        position: relative;
+        left: 50%;
+        margin-left: -100px;
+    }
+
+    .subpage .product .product_title .product_price {
+        position: relative;
+        left: 50%;
+        margin-left: 300px;
+    }
+
+    .subpage .product .product_img {
+        position: absolute;
+        left: 50%;
+        margin-left: -400px;
+    }
+
+    .subpage .product .product_item {
+        position: absolute;
+        left: 50%;
+        margin-left: -150px;
+    }
+
+    .subpage .product .product_txt {
+        position: absolute;
+        left: 50%;
+        margin-left: 295px;
+    }
+
+    .subpage .btn {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .subpage .btn button {
+        width: 150px;
+        height: 50px;
+        background-color: #003366;
+        display: inline-block;
+    }
+
+    .subpage .btn .login {
+        background-color: #ff4c4c;
+        border: none;
+        border-radius: 15px;
+    }
+
+    .subpage .btn .login a {
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .subpage .btn .empty {
+        border: #04A6F0 1px solid;
+        background-color: #fff;
+        border-radius: 15px;
+    }
+
+    .subpage .btn .empty a {
+        color: #04A6F0;
+        font-weight: bold;
+    }
+
+    .subpage .total {
+        margin: 40px 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .subpage .total b {
+        color: #c93242;
+        font-size: 32px;
+    }
+
+    /* 상세정보 설정 */
+
+    .subpage .sub_info {
+        width: 80%;
+        position: relative;
+        left: 50%;
+        left: 200px;
+        height: 50px;
+        background-color: green;
+        display: flex;
+        margin-top: 100px;
+        background-color: #CCCFD3;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .subpage .sub_info div {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 3;
+        cursor: pointer;
+    }
+
+    .subpage .sub_info div:hover {
+        background-color: #145290;
+    }
+
+    .subpage .sub_info div.on {
+        background-color: #145290;
+    }
+
+
+    /* 제품 상세설명 설정 */
+
+    .subpage .introduce {
+        width: 100%;
+        height: 900px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subpage .introduce img {
+        width: 500px;
+        height: 500px;
+    }
+
+    /* 장바구니 팝업창 설정 */
+
+    .shopping_bg {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(51, 51, 51, 0.5);
+        position: fixed;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        z-index: 98;
+    }
+
+    .shopping {
+        margin: 0 auto;
+        width: 600px;
+        height: 500px;
+        background-color: #fff;
+        border-radius: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 99;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shopping h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    .shopping i {
+        font-size: 60px;
+        margin: 20px 0;
+        color: #04A6F0;
+    }
+
+    .shopping .shop_text {
+        font-size: 24px;
+    }
+
+    .shopping .shop_text2 {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+
+
+    .shopping .shop_keep {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        border: #04A6F0 1px solid;
+        border-radius: 15px;
+        color: #04A6F0;
+        font-weight: bold;
+        line-height: 3;
+        margin-right: 20px;
+    }
+
+    .shopping .shop_basket {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        background-color: #ff4c4c;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 15px;
+        line-height: 3;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="main">
+            <h1><a href="index.html"><img src="img/logo_kor.png" alt="" class="logo"></a></h1>
+            <nav>
+                <ul>
+                    <a href="">
+                        <li>Original</li>
+                    </a>
+                    <a href="">
+                        <li>ZERO</li>
+                    </a>
+                    <a href="">
+                        <li>SOUR</li>
+                    </a>
+                </ul>
+            </nav>
+            <div class="util">
+                <ul>
+                    <li><a href=""><img src="img/Search.png" alt=""></a></li>
+                    <li><a href="login.html"><img src="img/Male User.png" alt=""></a></li>
+                    <li class="cart"><a href=""><img src="img/Shopping Cart.png" alt=""><span>0</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="subpage">
+        <div class="wrap">
+            <div class="sale_inner">
+                <nav class="bread">
+                    <ul>
+                        <li><a href="">Original</a></li>
+                        <li><a href="">마운틴 블라스트 355ml, 20pt</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <section class="pro_box">
+                <article class="pro_img">
+                    <div class="pro_img2"><img src="img/ade17.png" alt="" class="pro_bigimg"></div>
+
+                    <div class="pro_smallimg">
+                        <div><a href=""><img src="img/shopping.jpg" alt=""></a></div>
+                        <div><a href=""><img src="img/ade5.jpg" alt=""></a></div>
+                        <div><a href=""><img src="img/shop2.png" alt=""></a></div>
+                        <div><a href=""><img src="img/shop3.png" alt=""></a></div>
+                    </div>
+                </article>
+                <article class="info">
+                    <h3>파워에이드 마운틴 블라스트 PET 355ml 20pt</h3>
+                    <p>원산지 : 미국</p>
+                    <div class="star">
+                        <span>12581개 상품평</span>
+                    </div>
+                    <div class="flavor_choose">
+                        <div class="on">마운틴 블라스트</div>
+                        <div>레몬 라임</div>
+                        <div>딸기 레몬에이드</div>
+                        <div>블루 래즈</div>
+                        <div>아일랜드 버스트</div>
+                        <div>청사과</div>
+                    </div>
+                    <div class="buy_list">
+                        <div class="buy_info">
+                            <div class="buy_img">
+                                <img src="img/ade17.png" alt="">
+                            </div>
+                            <h4 class="info_name">파워에이드 마운틴 블라스트 PET 355ml 20개</h4>
+                            <h4 class="info_price">16,960원</h4>
+                        </div>
+                        <div class="buy_cart">
+                            <div class="buy_cart_inner">
+                                <p>파워에이드 마운틴 PET 355ml 20개</p>
+                                <div class="buy_border"></div>
+                                <div class="buy_btn"><span>-</span>1<span>+</span></div>
+                                <div class="buy_border"></div>
+                                <div class="buy_border_center"></div>
+                            </div>
+                            <div class="buy_cart_inner2">
+                                <p>총금액 수량1개<span>16,960원</span></p>
+                                <div class="buy_btn">구매하기</div>
+                                <div class="heart_plus">
+                                    <div class="heart"><i class="fa-solid fa-heart"></i>찜하기</div>
+                                    <div class="plus"><i class="fa-solid fa-cart-shopping"></i>장바구니</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ingredi">
+                        <div>
+                            <ul>
+                                <li>소비기한(또는 유통기한): 2025-04-04 이거나 그 이후인 상품</li>
+                                <li>용기 타입: 플라스틱병</li>
+                                <li>열량: 36Kcal</li>
+                                <li>설탕 함량: 당 첨가</li>
+                                <li>형태: 음료</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="more_box">
+                <h2>이외에 다양한 맛을 즐겨보세요!</h2>
+                <div class="sub_flavor">
+                    <div>
+                        <a href="">
+                            <p class="flavor_box"><img src="img/scarlet.jpg" alt=""></p>
+
+                            <span class="plus">+</span>
+
+                            <p class="name">파워에이드 스칼렛스톰 355ml</p>
+                            <h3 class="price">650원</h3>
+                        </a>
+                        <div class="flavor_border"></div>
+                    </div>
+                    <div>
+                        <a href="">
+                            <p class="flavor_box"><img src="img/purple1.png" alt=""></p>
+                            <p class="name">파워에이드 퍼플스톰 355ml</p>
+                            <h3 class="price">750원</h3>
+                            <span class="plus">+</span>
+                        </a>
+                        <div class="flavor_border"></div>
+                    </div>
+                    <div>
+                        <a href="">
+                            <p class="flavor_box"><img src="img/POWER5_NOBG.png" alt=""></p>
+                            <p class="name">파워에이드 오렌지 355ml</p>
+                            <h3 class="price">700원</h3>
+                            <span class="plus">+</span>
+                        </a>
+                        <div class="flavor_border"></div>
+                    </div>
+                    <div>
+                        <a href="">
+                            <p class="flavor_box"><img src="img/power_nobg.png" alt=""></p>
+                            <p class="name">파워에이드 프루트 펀치 355ml</p>
+                            <h3 class="price">800원</h3>
+                            <span class="plus">+</span>
+                        </a href="">
+                    </div>
+
+                </div>
+                <h2>이제는 파워에이드도 제로로!</h2>
+                <div class="sub_zero">
+                    <div>
+                        <a href="">
+                            <p class="zero_box"><img src="img/ade16.png" alt=""></p>
+                            <p class="name">파워에이드 제로 355ml</p>
+                            <h3 class="price">900원</h3>
+                            <span class="plus">+</span>
+                        </a>
+                        <div class="zero_border"></div>
+                    </div>
+                    <div>
+                        <a href="">
+                            <p class="zero_box"><img src="img/zero1.png" alt=""></p>
+                            <p class="name">파워에이드 제로 그레이프 355ml</p>
+                            <h3 class="price">1000원</h3>
+                            <span class="plus">+</span>
+                        </a>
+                        <div class="zero_border"></div>
+                    </div>
+                    <div>
+                        <a href="">
+                            <p class="zero_box"><img src="img/zero2.png" alt=""></p>
+                            <p class="name">파워에이드 스트로베리 스매쉬 355ml</p>
+                            <h3 class="price">1200원</h3>
+                            <span class="plus">+</span>
+                        </a>
+                        <div class="zero_border"></div>
+                    </div>
+                    <div>
+                        <a href="">
+                            <p class="zero_box"><img src="img/zero4.png" alt=""></p>
+                            <p class="name">파워에이드 제로 믹스드베리 355ml</p>
+                            <h3 class="price">1000원</h3>
+                            <span class="plus">+</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sub_info">
+                    <div class="on">상세설명</div>
+                    <div>리뷰</div>
+                    <div>상품문의</div>
+                    <div>반품/교환</div>
+                </div>
+            </section>
+            <section class="introduce">
+                <h2><span>ION4</span>로 업그레이드된 파워에이드</h2>
+                <p>이로인해 땀을 통해 손실되기 쉬운 <span>나트륨 , 칼륨, 칼슘, 마그네슘</span><br>
+                    네가지 필수 전해질을 보충해주어 몸에 활기가 생겨납니다!</p>
+                <img src="img/infomation.png" alt="">
+            </section>
+            <section class="shop">
+                <div class="product">
+                    <h2>장바구니</h2>
+                    <div class="product_title">
+                        <h3 class="product_info">상품정보</h3>
+                        <h3 class="product_price">상품금액</h3>
+                    </div>
+                    <div class="list">
+
+                    </div>
+                    <p class="total">총 <span>00</span> 개의 상품금액 <b><span>0000</span>원</b></p>
+
+                    <div class="btn">
+                        <button class="login"><a href="login.html">결제하기</a></button>
+                        <button class="empty"><a href="">장바구니 비우기</a></button>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <div id="popupOverlay" class="shopping_bg">
+                <div id="popup" class="shopping">
+                    <h2>장바구니 담기</h2>
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <p class="shop_text">선택한 상품이 장바구니에 담겼습니다.</p>
+                    <p class="shop_text2">화면 밖 클릭시 창이 닫힙니다.</p>
+                    <div><span class="shop_keep">쇼핑 계속하기</span><span class="shop_basket">장바구니 이동</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

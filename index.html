@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오</title>
+    <!-- 외부 스타일시트 연결 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 제이쿼리cdn 연결 -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js.js"></script>
+    <!-- 원형차트cdn 연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.3/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="intro">
+        <!-- 라이트모드 -->
+        <div class="light">
+            <div class="name">
+                <p>2024</p>
+                <div></div>
+                <h3>Seong Jae Hyeon</h3>
+                <div></div>
+                <p>Publish</p>
+            </div>
+            <div class="intro_main">
+                <div class="sun"></div>
+                <div class="main_text">PORTFOLIO</div>
+            </div>
+            <img src="img/intro.png" alt="" class="light_img">
+        </div>
+        <!-- 다크모드 -->
+        <div class="dark">
+            <div class="name">
+                <p>2024</p>
+                <div></div>
+                <h3>Seong Jae Hyeon</h3>
+                <div></div>
+                <p>Publish</p>
+            </div>
+            <div class="intro_main">
+                <div class="dark_img"><img src="img/star.png" alt="" class="star"></div>
+                <div class="main_text">PORTFOLIO</div>
+            </div>
+            <img src="img/intro2.png" alt="" class="dark_img2">
+        </div>
+    </div>
+    <div class="main">
+        <!-- 헤더, 메뉴 -->
+        <header>
+            <nav class="menu">
+                <li class="category active" data-category="profile">Profile</li>
+                <li class="category" data-category="chungju">Chungju</li>
+                <li class="category" data-category="powerade">PowerAde</li>
+                <li class="category" data-category="ryu">Hyun-Jin Ryu</li>
+            </nav>
+        </header>
+        <div class="cube">
+            <div class="profile">
+                <!-- 좌측프로필 -->
+                <img src="img/main.png" alt="" class="main_img">
+                <div class="left_con">
+                    <div></div>
+                    <h3>Seong Jae Hyeon</h3>
+                    <p>안녕하세요.</p>
+                    <p>신중하고 성실한 태도를 통해</p>
+                    <p>웹 퍼블리셔의 길을 준비하는 성재현입니다.</p>
+                    <p>책임감 있게 최상의 결과물을 만들어가고자 합니다.</p>
+                </div>
+                <!-- 우측 프로필 -->
+                <div class="right_con">
+                    <img src="img/profile_star.png" alt="" class="big_star">
+                    <img src="img/profile_star2.png" alt="" class="little_star">
+                    <div class="about">
+                        <h3>ABOUT ME</h3>
+                        <p>NAME <span>성재현</span></p>
+                        <p>BIRTH <span>2001</span></p>
+                        <p>EMAIL <span>tjdwogus112@naver.com</span></p>
+                    </div>
+                    <div class="license">
+                        <h3>LICENSE</h3>
+                        <p>1종 보통면허</p>
+                        <p>ITQ(한글, 파워포인트, 엑셀)</p>
+                    </div>
+                    <div class="skill">
+                        <h3>SKILLS</h3>
+                        <div class="chart">
+                            <div class="canvas_wrap">
+                                <canvas class="canvas" width="300" height="300" data-percent="90"
+                                    data-color="#E65100"></canvas>
+                                <img src="img/Html 5.png" alt="" class="percent">
+                                <p>HTML5</p>
+                            </div>
+                            <div class="canvas_wrap">
+                                <canvas class="canvas" width="300" height="300" data-percent="80"
+                                    data-color="#0277BD"></canvas>
+                                <img src="img/CSS3.png" alt="" class="percent">
+                                <p>CSS3</p>
+                            </div>
+                            <div class="canvas_wrap">
+                                <canvas class="canvas" width="300" height="300" data-percent="60"
+                                    data-color="#FFD83A"></canvas>
+                                <img src="img/JS.png" alt="" class="percent">
+                                <P>JS</P>
+                            </div>
+                            <div class="canvas_wrap">
+                                <canvas class="canvas" width="300" height="300" data-percent="60"
+                                    data-color="#03A9F4"></canvas>
+                                <img src="img/Adobe Photoshop.png" alt="" class="percent">
+                                <P>PS</P>
+                            </div>
+                            <div class="canvas_wrap">
+                                <canvas class="canvas" width="300" height="300" data-percent="80"
+                                    data-color="#66BB6A"></canvas>
+                                <img src="img/Figma.png" alt="" class="percent">
+                                <P>Figma</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edu">
+                        <h3>EDUCATION</h3>
+                        <p>2024 <span>NCS UI/UX & 프론트엔드 개발자 양성과정 수료</span></p>
+                        <p>2020 <span>대전보문고등학교 졸업</span></p>
+                    </div>
+                    <div class="keyword">
+                        <h3>KEYWORD</h3>
+                        <div class="keyword_in">
+                            <p class="keyword_1">성실함</p>
+                            <p class="keyword_2">근면함</p>
+                            <p class="keyword_3">내성적</p>
+                            <p class="keyword_4">소심함</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="chungju">
+                <img src="img/main.png" alt="" class="main_img">
+                <img src="img/profile_star.png" alt="" class="big_star">
+                <div class="mockup">
+                    <span class="concept">CONCEPT VIEW</span><a href="https://qpitser.github.io/qpitser/project001/" target="_blank"><span class="site">VIEW SITE</span></a>
+                </div>
+                
+                <div class="popup">
+                    <div class="popup_in"><img src="img/portfolio_concept.png" alt=""></div>
+                </div>
+            </div>
+            <div class="powerade">
+                <img src="img/main.png" alt="" class="main_img">
+                <img src="img/profile_star.png" alt="" class="big_star">
+                <div class="mockup">
+                    <span class="concept">CONCEPT VIEW</span><a href="https://qpitser.github.io/qpitser/project002/" target="_blank"><span class="site">VIEW SITE</span></a>
+                </div>
+                
+                <div class="popup">
+                    <div class="popup_in"><img src="img/portfolio2_concept.png" alt=""></div>
+                </div>
+            </div>
+            <div class="ryu">
+                <img src="img/main.png" alt="" class="main_img">
+                <img src="img/profile_star.png" alt="" class="big_star">
+                <div class="mockup">
+                    <span class="concept">CONCEPT VIEW</span><a href="https://qpitser.github.io/qpitser/project003/" target="_blank"><span class="site">VIEW SITE</span></a>
+                </div>
+                <div class="popup">
+                    <div class="popup_in"><img src="img/portfolio3_concept.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="slidePanel" class="slide-panel">
+        <div id="panelContent" class="panel-content"></div>
+    </div>
+
+</body>
+
+</html>

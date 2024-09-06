@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트1</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+  <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <style>
+        * {margin: 0;
+            padding: 0;}
+        ul {list-style: none;}
+        body {background-color: cadetblue;}
+        section {width: 60%;
+            margin: 50px auto;
+            height: auto;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 5px 5px 10px #000;
+            background-color: antiquewhite;}
+
+        /* 달력세부구조 */
+        .ui-datepicker {
+                background-color: transparent;
+                width: 50%;
+                /* 50%가 미니멈으로 줄일 수 있는 크기 */
+        }
+        .ui-datepicker table {
+            font-size: 18px;
+            width: 100%;
+            /* 위의크기를 따라감 */
+        }
+        .ui-datepicker .ui-datepicker-header {
+            background-color: red;
+        }
+        .ui-datepicker td {
+            padding: 2px;
+            border: 2px solid red;
+        }
+        .ui-datepicker tr {
+            background-color: aquamarine;
+        }
+        .ui-datepicker td a {color: aquamarine !important;
+            background-color: red !important;}
+
+            [data-scroll] {
+  transition: opacity 1s;
+}
+[data-scroll="in"] {
+  opacity: 1;
+}
+[data-scroll="out"] {
+  opacity: 0;
+}
+    </style>
+
+
+</head>
+<body>
+    <div class="wrap">
+        <section data-scroll>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+        </section>
+        <section data-scroll>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+
+            <div class="reservation">
+                <div id="datepicker"></div>
+
+            </div>
+
+
+        </section>
+        <section data-scroll>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+        </section>
+        <section data-scroll>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+        </section>
+        <section data-scroll>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam aspernatur at minus quisquam neque, ex a dignissimos pariatur quod optio ipsa nam iure asperiores et nesciunt animi repudiandae ullam doloremque?
+        </section>
+    </div>
+
+
+    <script>
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+    
+    
+        ScrollOut({
+      onShown: function(el) {
+        // use the web animation API
+        el.animate([{ opacity: 0 }, { opacity: 1 }], 1000);
+      },
+      onHidden: function(el) {
+        // hide the element initially
+        el.style.opacity = 1;
+      }
+    });
+        </script>
+</body>
+</html>

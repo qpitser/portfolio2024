@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.main {
+    perspective: 1000px;
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 1s;
+}
+
+.cube > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+.profile   { transform: rotateY(  0deg) translateZ(250px); }
+.chungju   { transform: rotateY( 90deg) translateZ(250px); }
+.powerade  { transform: rotateY(180deg) translateZ(250px); }
+.ryu       { transform: rotateY(-90deg) translateZ(250px); }
+
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.menu li {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+}
+
+.menu li.active {
+    background-color: #FF5722;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- 헤더, 메뉴 -->
+        <header>
+            <nav class="menu">
+                <li class="category active">Profile</li>
+                <li class="category">Chungju</li>
+                <li class="category">PowerAde</li>
+                <li class="category">Hyun-Jin Ryu</li>
+            </nav>
+        </header>
+        <div class="cube">
+            <div class="profile">
+                <!-- 좌측프로필 -->
+                <img src="img/main.png" alt="" class="main_img">
+                <div class="left_con">
+                    <div></div>
+                    <h3>Seong Jae Hyeon</h3>
+                    <p>안녕하세요.</p>
+                    <p>신중하고 성실한 태도를 통해</p>
+                    <p>웹 퍼블리셔의 길을 준비하는 성재현입니다.</p>
+                    <p>책임감 있게 최상의 결과물을 만들어가고자 합니다.</p>
+                </div>
+                <!-- 우측 프로필 -->
+                <div class="right_con">
+                    <img src="img/profile_star.png" alt="" class="big_star">
+                    <img src="img/profile_star2.png" alt="" class="little_star">
+                    <div class="about">
+                        <h3>ABOUT ME</h3>
+                        <p>NAME <span>성재현</span></p>
+                        <p>BIRTH <span>2001</span></p>
+                        <p>EMAIL <span>tjdwogus112@naver.com</span></p>
+                    </div>
+                    <div class="license">
+                        <h3>LICENSE</h3>
+                        <p>1종 보통면허</p>
+                        <p>ITQ(한글, 파워포인트, 엑셀)</p>
+                    </div>
+                    <div class="skill">
+                        <h3>SKILLS</h3>
+                        <div class="chart">
+                            <!-- 캔버스 및 스킬 내용들 -->
+                        </div>
+                    </div>
+                    <div class="edu">
+                        <h3>EDUCATION</h3>
+                        <p>NCS UI/UX & 프론트엔드 개발자 양성과정 수료</p>
+                    </div>
+                    <div class="keyword">
+                        <h3>KEYWORD</h3>
+                        <div class="keyword_in">
+                            <p>성실함</p>
+                            <p>근면함</p>
+                            <p>내성적</p>
+                            <p>책임감</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chungju">청주</div>
+            <div class="powerade">PowerAde</div>
+            <div class="ryu">Hyun-Jin Ryu</div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+    const $cube = $('.cube');
+    const $menuItems = $('.menu li');
+
+    // 초기 상태 설정
+    let currentRotation = 0;
+
+    $menuItems.on('click', function() {
+        // 클릭된 카테고리 인덱스에 따라 회전 각도 계산
+        const index = $(this).index();
+        currentRotation = -90 * index;
+
+        // 큐브 회전 적용
+        $cube.css('transform', `rotateY(${currentRotation}deg)`);
+
+        // 모든 메뉴 아이템에서 active 클래스 제거하고 클릭된 아이템에 추가
+        $menuItems.removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>

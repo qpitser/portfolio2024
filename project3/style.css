@@ -43,7 +43,144 @@ a {
     color: #fff;
 }
 
+/* 인트로 설정 */
 
+.intro-slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.pitching-image {
+    width: 600px;
+    animation: pitchAnimation 3s ease-in-out infinite;
+    position: absolute;
+    top: 20%;
+    right: 0;
+}
+
+.ball-rotate {
+    width: 200px;
+    position: absolute;
+    top: 30%;
+    animation: rotateBall 1s linear infinite, moveBall 3s ease-in-out infinite;
+}
+
+.loading-text {
+    color: white;
+    font-size: 24px;
+    margin-top: 60px;
+    animation: blinkAnimation 5s infinite;
+}
+
+/* 두번째인트로 설정 */
+
+
+.intro-slide2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9998;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.intro-slide2 h1 {
+    font-size: 5rem;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    color: #005A9C;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -450px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(239, 62, 66, 1),
+        -3px -3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.intro-slide2 h2 {
+    color: #EF3E42;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-left: -300px;
+}
+
+.uni_dodger {
+    position: absolute;
+    left: 10%;
+}
+
+.uni_hanwha {
+    position: absolute;
+    right: 10%;
+}
+
+/* 애니메이션 효과 */
+@keyframes pitchAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(50px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes blinkAnimation {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes rotateBall {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveBall {
+    0% {
+        left: 30%;
+    }
+
+    50% {
+        left: 60%;
+    }
+
+    100% {
+        left: 30%;
+    }
+}
 
 /* 헤더설정 */
 
@@ -136,16 +273,16 @@ header nav ul li:nth-child(4) {
     color: #000;
 }
 
-.art4 .dodgers ul li.on {
+.dodgers ul li.on {
     color: #005A9C;
     font-size: 28px;
 }
 
-.art4 .dodgers ul li:hover {
+.dodgers ul li:hover {
     color: #005A9C;
 }
 
-.art4 .dodgers ul li:nth-child(4) {
+.dodgers ul li:nth-child(4) {
     color: #fff;
 }
 
@@ -180,10 +317,6 @@ article {
     background-color: #000;
 }
 
-.art3 {
-    background-color: #000;
-}
-
 .art4 {
     left: -100%;
     top: 100px;
@@ -191,8 +324,6 @@ article {
     overflow: visible;
     height: calc(100vh - 120px);
 }
-
-
 
 
 /* 팀/프로필 설정 */
@@ -440,14 +571,11 @@ article {
     width: 100%;
     height: 100%;
     background-color: #fff;
-    position: absolute;
 }
 
 .profile_d section {
     width: 100%;
     height: 100%;
-    position: relative;
-    top: 0;
     right: 0;
 }
 
@@ -687,30 +815,6 @@ article {
     }
 }
 
-/* 스크롤설정 */
-
-.profile_d .scroll {
-    position: absolute;
-    bottom: 150px;
-    font-size: 40px;
-    left: 50%;
-    margin-left: -90px;
-    color: #000;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    animation: bounce 2s linear infinite;
-}
-
-.profile_d i {
-    color: #000;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    z-index: 3;
-    font-size: 80px;
-    animation: bounce 2s linear infinite;
-}
 
 
 /* 개인프로필 설정 */
@@ -838,6 +942,7 @@ article {
     max-width: 500px;
     max-height: 500px;
 }
+
 .canvas_wrap .percent {
     display: block;
     position: absolute;
@@ -847,9 +952,11 @@ article {
     color: #3949AB;
     transform: translate(-50%, -50%);
 }
+
 .canvas_wrap .percent::after {
     content: '%';
 }
+
 .canvas_wrap canvas {
     width: 100%;
     height: 100%;
@@ -886,27 +993,20 @@ article {
     width: 33.3333%;
 }
 
-.chart_bar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #000;
-}
-
 
 /* 다저스 부분 설정 */
 
+
 .profile_solo_d {
     width: 100%;
-    height: 1200px;
-    background-color: antiquewhite;
+    height: 1000px;
+    margin-top: 100px;
 }
 
 .profile_ind_d {
     display: flex;
     width: 100%;
-    height: 1000px;
-    background-color: #fff;
+    height: 100%;
     color: #000;
 }
 
@@ -914,6 +1014,7 @@ article {
     width: 33.3333%;
     margin-left: 20px;
     margin-top: 20px;
+    height: 100%;
 }
 
 .profile_ind_d .profile_left h1 {
@@ -946,6 +1047,7 @@ article {
 
 .profile_ind_d .profile_center {
     width: 33.3333%;
+    height: 1000px;
 }
 
 .profile_ind_d .profile_center div {
@@ -1004,8 +1106,6 @@ article {
     height: 200px;
     border-radius: 50%;
     transition: 0.3s;
-    background: conic-gradient(#FF6347 0% 87%,
-            #FFA07A 87% 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1022,8 +1122,6 @@ article {
     height: 200px;
     border-radius: 50%;
     transition: 0.3s;
-    background: conic-gradient(#32CD32 0% 93%,
-            #98FB98 93% 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1037,10 +1135,6 @@ article {
     margin-top: 100px;
     width: 200px;
     height: 200px;
-    border-radius: 50%;
-    transition: 0.3s;
-    background: conic-gradient(#4682B4 0% 85%,
-            #87CEFA 85% 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1199,7 +1293,6 @@ article {
     width: 350px;
     height: 200px;
     background-color: #fff;
-    opacity: 0.8;
     position: absolute;
     top: 300px;
     border-radius: 30px;
@@ -1211,7 +1304,6 @@ article {
     width: 100%;
     height: 100%;
     border-radius: 30px;
-    opacity: 0.8;
 
 }
 
@@ -1322,15 +1414,25 @@ article {
     z-index: 99;
     opacity: 1;
 }
-.game:nth-child(3).on {
+
+.game:nth-child(3) {
     margin-top: -1000px;
 }
 
-.game:nth-child(4).on {
+.game:nth-child(4) {
+    margin-top: -1300px;
+}
+
+.game:nth-child(5) {
     margin-top: -1000px;
 }
 
-.game .tv {width: 1700px;
+.game:nth-child(6) {
+    margin-top: -1300px;
+}
+
+.game .tv {
+    width: 1700px;
     height: 1300px;
     position: relative;
     background-image: url(img/tv_mockup.png);
@@ -1339,18 +1441,22 @@ article {
     top: 50%;
     margin-top: -250px;
     left: 50%;
-    margin-left: -800px;}
-
-.game .tv_in {
-width: 1220px;
-height: 1000px;
-position: relative;
-top: 10%;
-left: 5%;
+    margin-left: -800px;
 }
 
-.game .tv_in video {width: 100%;
-    height: 100%;}
+.game .tv_in {
+    width: 1220px;
+    height: 1000px;
+    position: relative;
+    top: 10%;
+    left: 5%;
+}
+
+.game .tv_in video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
 
 
 
@@ -1370,6 +1476,14 @@ left: 5%;
     transform: translateZ(-12000px);
 }
 
+.art2 section:nth-child(5) {
+    transform: translateZ(-16000px);
+}
+
+.art2 section:nth-child(6) {
+    transform: translateZ(-20000px);
+}
+
 /* 다저스 경기영상 설정 */
 
 
@@ -1377,7 +1491,7 @@ left: 5%;
     color: #000;
     position: fixed;
     background-color: #fff;
-    perspective: 3000px;
+    perspective: 1500px;
     height: 100%;
 }
 
@@ -1412,7 +1526,7 @@ left: 5%;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: 120px; 
+    margin-top: 120px;
     margin-left: -780px;
     font-size: 32px;
     font-family: "Bebas Neue", sans-serif;
@@ -1429,7 +1543,9 @@ left: 5%;
     font-size: 16px;
 }
 
-.art5 .game_d b {font-size: 20px;}
+.art5 .game_d b {
+    font-size: 20px;
+}
 
 
 /* 텍스트 효과 설정 */
@@ -1512,7 +1628,6 @@ left: 5%;
     width: 350px;
     height: 200px;
     background-color: #fff;
-    opacity: 0.8;
     position: absolute;
     top: 300px;
     border-radius: 30px;
@@ -1524,7 +1639,7 @@ left: 5%;
     width: 100%;
     height: 100%;
     border-radius: 30px;
-    opacity: 0.8;
+    object-fit: cover;
 
 }
 
@@ -1637,12 +1752,68 @@ left: 5%;
     right: 0;
 }
 
-.game.d {z-index: 1;
-    position: relative;}
+.art5 .game_d .game_ryu_d {
+    position: absolute;
+    width: 1300px;
+    height: auto;
+    z-index: 1;
+    left: 40%;
+    margin-left: -400px;
+    right: 0;
+}
+
+
+.game.d {
+    z-index: 1;
+    position: relative;
+}
 
 .game_d.on {
-    z-index: 99;    
+    z-index: 99;
     opacity: 1;
+}
+
+.game_d:nth-child(3) {
+    margin-top: -1000px;
+}
+
+.game_d:nth-child(4) {
+    margin-top: -1300px;
+}
+
+.game_d:nth-child(5) {
+    margin-top: -1000px;
+}
+
+.game_d:nth-child(6) {
+    margin-top: -1300px;
+}
+
+.game_d .tv {
+    width: 1700px;
+    height: 1300px;
+    position: relative;
+    background-image: url(img/tv_mockup.png);
+    background-size: cover;
+    background-position: center;
+    top: 50%;
+    margin-top: -250px;
+    left: 50%;
+    margin-left: -800px;
+}
+
+.game_d .tv_in {
+    width: 1220px;
+    height: 1000px;
+    position: relative;
+    top: 10%;
+    left: 5%;
+}
+
+.game_d .tv_in video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 
 .art5 section:nth-child(1) {
@@ -1650,11 +1821,27 @@ left: 5%;
 }
 
 .art5 section:nth-child(2) {
-    transform: translateZ(-3000px);
+    transform: translateZ(-4000px);
 }
 
 .art5 section:nth-child(3) {
-    transform: translateZ(-6000px);
+    transform: translateZ(-8000px);
+}
+
+.art5 section:nth-child(4) {
+    transform: translateZ(-12000px);
+}
+
+.art5 section:nth-child(5) {
+    transform: translateZ(-16000px);
+}
+
+.art5 section:nth-child(6) {
+    transform: translateZ(-20000px);
+}
+
+.art5.off {
+    display: none;
 }
 
 /* 갤러리 박스설정 */
@@ -1664,9 +1851,13 @@ left: 5%;
     height: 100vh;
     display: flex;
     position: relative;
+    background-color: #fff;
 }
 
-.art3.on {left: 0;}
+.art3.on {
+    left: 0;
+}
+
 .art3 .gallery {
     display: flex;
     justify-content: space-between;
@@ -1687,24 +1878,18 @@ left: 5%;
 
 .art3 .gallery nav ul li {
     font-size: 24px;
-    color: #fff;
+    color: #EF3E42;
     cursor: pointer;
     padding: 20px;
 }
 
 .art3 .gallery nav ul li:hover {
     font-weight: bold;
-}
-
-.art3 .gallery nav ul li:nth-child(3):hover {
     color: #005A9C;
 }
 
 .art3 .gallery nav ul li.on {
     font-weight: bold;
-}
-
-.art3 .gallery .life li:nth-child(3).on {
     color: #005A9C;
 }
 
@@ -1720,7 +1905,7 @@ left: 5%;
 }
 
 .art3 .gallery .gallery_img.on {
-    display: flex;
+    display: flex !important;
 }
 
 
@@ -1732,6 +1917,7 @@ left: 5%;
     margin: 50px;
     border-radius: 60px;
     cursor: pointer;
+    transition: all 2s;
 }
 
 .art3 .gallery .gallery_img p span {
@@ -1746,6 +1932,10 @@ left: 5%;
     z-index: -2;
     color: #d9d9d9;
     opacity: 0;
+}
+
+.art3.off {
+    display: none;
 }
 
 
@@ -1811,7 +2001,7 @@ left: 5%;
 }
 
 .gallery_img:nth-child(3).on p:nth-child(5) {
-    background-image: url(img/life/fan71.jpg);
+    background-image: url(img/life/fan7.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -1875,3 +2065,42 @@ left: 5%;
         left: 100%;
     }
 }
+
+/* 슬라이드 패널 설정 */
+
+.slide-panel {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(51, 51, 51, 0.8);
+    transition: 0.5s;
+    padding-top: 60px;
+    color: white;
+    z-index: 1;
+}
+
+.slide-panel .closebtn {
+    position: absolute;
+    bottom: 80px;
+    right: 50px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-decoration: none;
+    color: white;
+}
+
+.panel-content {
+    height: 100%;
+    margin: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.panel-content h2 {font-size: 28px;}
