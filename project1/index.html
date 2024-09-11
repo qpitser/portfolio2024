@@ -20,16 +20,67 @@
     <!-- scrollout cdn 연결 -->
     <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 
+    <!-- swiper.js cdn 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
     <script>
-        $(document).ready(function(){
 
-            $('.cafe .titleBox ul li').click(function(){
-               var i = $(this).index()
-               $('.menu').eq(i-1).css({'display' : 'none'})
-               $('.menu').eq(i-2).css({'display' : 'none'})
-               $('.menu').eq(i+1).css({'display' : 'none'})
-               $('.menu').eq(i).css({'display' : 'flex'})
+const swiper = new Swiper('.swiper-container', {
+      loop: true, // 무한 반복
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+        $(document).ready(function () {
 
+            $('.cafe .titleBox ul li').click(function () {
+                var i = $(this).index()
+                $('.menu').eq(i - 1).css({ 'display': 'none' })
+                $('.menu').eq(i - 2).css({ 'display': 'none' })
+                $('.menu').eq(i + 1).css({ 'display': 'none' })
+                $('.menu').eq(i).css({ 'display': 'flex' })
+
+            })
+
+            $('.system .titleBox .titleBox_handdrip').click(function (e) {
+                e.preventDefault()
+                $('.handdrip').css({ 'display': 'flex' })
+                $('.waksta').css({ 'display': 'none' })
+
+            })
+
+            $('.system .titleBox .titleBox_waksta').click(function (e) {
+                e.preventDefault()
+                $('.handdrip').css({ 'display': 'none' })
+                $('.waksta').css({ 'display': 'flex' })
+
+            })
+
+            $('.title_review_handdrip').click(function (e) {
+                e.preventDefault()
+                $('.review_waksta').css({ 'display': 'none' })
+                $('.review_handdrip').css({ 'display': 'flex' })
+
+            })
+
+            $('.title_review_waksta').click(function (e) {
+                e.preventDefault()
+                $('.review_handdrip').css({ 'display': 'none' })
+                $('.review_waksta').css({ 'display': 'flex' })
+
+            })
+
+            $('.notice_inner .titleBox li').click(function (e) {
+
+                e.preventDefault()
+                $('.titleBox li').removeClass('on');
+                $(this).addClass('on');
             })
 
 
@@ -49,6 +100,8 @@
                     alert('선택한날짜:' + dateText)
                 }
             });
+
+            
 
 
 
@@ -71,7 +124,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="web_header">
         <div class="main">
             <h1><a href=""><img src="img/logo.png" alt=""></a></h1>
             <nav>
@@ -206,16 +259,16 @@
                 <div class="system_exp">
                     <div class="titleBox">
                         <ul>
-                            <li><a href="">핸드드립</a></li>
-                            <li><a href="">왁스타블렛</a></li>
+                            <li class="titleBox_handdrip"><a href="">핸드드립</a></li>
+                            <li class="titleBox_waksta"><a href="">왁스타블렛</a></li>
                             <li><a href="">커스텀향수</a></li>
 
                         </ul>
                     </div>
                     <div class="listBox">
-                        
+
                         <div class="handdrip">
-                           <p>직접 다양한 종류의 커피를 내려보면서 다양한 원두의 맛을 경험할 수 있는 특별한 체험입니다.</p> 
+                            <p>직접 다양한 종류의 커피를 내려보면서 다양한 원두의 맛을 경험할 수 있는 특별한 체험입니다.</p>
                             <ul>
                                 <li><a href="">
                                         <img src="img/handdrip1.jpg" alt="" class="img1" width="250px" height="250px">
@@ -250,14 +303,6 @@
 
                             </ul>
                         </div>
-                        <div>
-                            <ul>
-                                <li><a href=""><img src="" alt=""></a></li>
-                                <li><a href=""><img src="" alt=""></a></li>
-                                <li><a href=""><img src="" alt=""></a></li>
-
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -267,8 +312,8 @@
                 <h1>리뷰</h1>
                 <div class="titleBox">
                     <ul>
-                        <li><a href="">핸드드립</a></li>
-                        <li><a href="">왁스타블렛</a></li>
+                        <li class="title_review_handdrip"><a href="">핸드드립</a></li>
+                        <li class="title_review_waksta"><a href="">왁스타블렛</a></li>
                         <li><a href="">커스텀향수</a></li>
                         <li><a href="">박물관</a></li>
                         <li><a href="">카페</a></li>
@@ -276,72 +321,103 @@
                     </ul>
                 </div>
                 <div class="imgBox">
-                    <div>
-                        <span class="left"></span>
-                        <ul>
-                            <li><a href="">핸드드립</a></li>
-                            <li>
-                                <a href="">
+                    <div class="review_handdrip">
+                        <div>
+                            <ul>
+                                <li><a href="">핸드드립</a></li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/reviewer1.png" alt="">
+                                        <span><b>커피애호가</b></span>
+                                    </a>
+                                </li>
+                                <li><a href="">핸드드립 체험은 직접 커피를 내려보면서<br>
+                                        다양한 원두의 맛을 경험할 수 있는 특별<br>
+                                        한 활동입니다. 가이드의 도움으로 .....</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><a href="">핸드드립</a></li>
+                                <li>
+
+                                    <a href="">
+                                        <img src="img/reviewer2.png" alt="">
+                                        <span><b>커피미식가</b></span>
+                                    </a>
+                                </li>
+                                <li><a href="">핸드드립 체험은 직접 커피를 내려보면서<br>
+                                        다양한 원두의 맛을 경험할 수 있는 특별<br>
+                                        한 활동입니다. 가이드의 도움으로 .....</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><a href="">핸드드립</a></li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/reviewer3.png" alt="">
+                                        <span><b>카페인러버</b></span>
+                                    </a>
+                                </li>
+                                <li><a href="">핸드드립 체험은 직접 커피를 내려보면서<br>
+                                        다양한 원두의 맛을 경험할 수 있는 특별<br>
+                                        한 활동입니다. 가이드의 도움으로 .....</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="review_waksta">
+                        <div>
+                            <ul>
+                                <li>
+                                    <a href="">왁스타블렛</a>
+                                </li>
+                                <li>
                                     <img src="img/reviewer1.png" alt="">
                                     <span><b>커피애호가</b></span>
-                                </a>
-                            </li>
-                            <li><a href="">핸드드립 체험은 직접 커피를 내려보면서<br>
-                                    다양한 원두의 맛을 경험할 수 있는 특별<br>
-                                    한 활동입니다. 가이드의 도움으로 .....</a></li>
-                        </ul>
-                        <span class="right"></span>
-                    </div>
-                    <div>
-                        <span class="left"></span>
-                        <ul>
-                            <li><a href="">왁스타블렛</a></li>
-                            <li>
-
-                                <a href="">
+                                </li>
+                                <li>
+                                    <a href="">왁스타블렛 만들기 체험은 직접 참여<br>
+                                        하면서 색다른 경험을 느낄 수 있었습니다.<br>
+                                        전문 안내자의 도움으로 다양한 종류의 ....</a>
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a href="">왁스타블렛</a>
+                                </li>
+                                <li>
                                     <img src="img/reviewer2.png" alt="">
                                     <span><b>커피미식가</b></span>
-                                </a>
-                            </li>
-                            <li><a href="">왁스타블렛 만들기 체험은 직접 참여<br>
-                                    하면서 색다른 경험을 느낄 수 있었습니다.<br>
-                                    전문 안내자의 도움으로 다양한 종류의 ....</a></li>
-                        </ul>
-                        <span class="right"></span>
-                    </div>
-                    <div>
-                        <span class="left"></span>
-                        <ul>
-                            <li><a href="">핸드드립</a></li>
-                            <li>
-                                <a href="">
+                                </li>
+                                <li>
+                                    <a href="">왁스타블렛 만들기 체험은 직접 참여<br>
+                                        하면서 색다른 경험을 느낄 수 있었습니다.<br>
+                                        전문 안내자의 도움으로 다양한 종류의 ....</a>
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a href="">왁스타블렛</a>
+                                </li>
+                                <li>
                                     <img src="img/reviewer3.png" alt="">
                                     <span><b>카페인러버</b></span>
-                                </a>
-                            </li>
-                            <li><a href="">핸드드립 체험은 직접 커피를 내려보면서<br>
-                                    다양한 원두의 맛을 경험할 수 있는 특별<br>
-                                    한 활동입니다. 가이드의 도움으로 .....</a></li>
-                        </ul>
-                        <span class="right"></span>
-                    </div>
-                    <div>
-                        <span class="left"></span>
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                        <span class="right"></span>
-                    </div>
-                    <div>
-                        <span class="left"></span>
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                        <span class="right"></span>
+                                </li>
+                                <li>
+                                    <a href="">왁스타블렛 만들기 체험은 직접 참여<br>
+                                        하면서 색다른 경험을 느낄 수 있었습니다.<br>
+                                        전문 안내자의 도움으로 다양한 종류의 ....</a>
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -363,7 +439,7 @@
                     <div class="txtBox">
                         <span><a href="">더보기</a></span>
                         <ul class="titleBox">
-                            <li><a href="">전체</a></li>
+                            <li class="on"><a href="">전체</a></li>
                             <li><a href="">공지</a></li>
                             <li><a href="">전시행사</a></li>
                             <li><a href="">보도자료</a href=""></li>
@@ -381,9 +457,9 @@
                             </div>
                             <div>
                                 <ul>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
+                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
+                                    <li><a href="">2.14(수) 임시휴무</a></li>
+                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
                                     <li><a href=""></a></li>
                                     <li><a href=""></a></li>
                                     <li><a href=""></a></li>
@@ -415,28 +491,27 @@
                 </div>
                 <div class="online">
                     <h2>온라인 전시관</h2>
-                    <ul>
-                        <li>
-                            << /li>
-                        <li><span>1</span>/12</li>
+                    <ul class="slide_number">
+                        <li><</li>
+                        <li><span>1</span>/3</li>
                         <li>></li>
                     </ul>
                     <div class="imgBox">
-                        <ul>
+                        <ul class="online_slide">
                             <li><a href="">
                                     <div>
-                                        <img src="img/online.webp" alt="">
-                                        <div class="online_txt">커피 문화의 발견<br>세계 각지의 풍부한 유산</div>
+                                        <img src="img/online.jpg" alt="">
+                                        <div class="online_txt1">커피 문화의 발견<br>세계 각지의 풍부한 유산</div>
                                     </div>
 
                                 </a></li>
                             <li><a href="">
                                     <img src="img/online2.jpg" alt="">
-                                    <div>커피 원두와 역사의 비밀<br>특별기획전 소식</div>
+                                    <div class="online_txt2">커피 원두와 역사의 비밀<br>특별기획전 소식</div>
                                 </a></li>
                             <li><a href="">
                                     <img src="img/online3.jpg" alt="">
-                                    <div>커피 향의 세계로<br> 맛과 향의 발견</div>
+                                    <div class="online_txt3">커피 향의 세계로<br> 맛과 향의 발견</div>
                                 </a></li>
                         </ul>
                     </div>
@@ -456,46 +531,48 @@
                 </div>
                 <div class="imgBox">
                     <h2>주변관광지안내</h2>
-                    <ul>
-                        <li>
-                            <a href=""><img src="img/travel.jpg" alt=""></a href="">
-                            <div class="travel">
-                                <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star"></i></p>
-                                <a href="">
-                                    <p>중앙탑사적공원</p>
-                                </a>
-                                <p>야경, 맛집<span>거리 : 8km</span></p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href=""><img src="img/cave.jpg" alt=""></a>
-                            <div class="travel">
-                                <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star"></i></p>
-                                <a href="">
-                                    <p>활옥동굴</p>
-                                </a href="">
-                                <p>동굴, 카약<span>거리 : 5km</span></p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href=""><img src="img/cave.jpg" alt=""></a>
-                            <div class="travel">
-                                <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star"></i></p>
-                                <a href="">
-                                    <p>충주 식물원</p>
-                                </a>
-                                <p>카페, 식물원<span>거리 : 10km</span></p>
-                            </div>
-                        </li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                    <div class="swiper_container">
+                        <div class="swiper_wrapper">
+                            <ul>
+                                <li>
+                                    <a href=""><img src="img/travel.jpg" alt=""></a href="">
+                                    <div class="travel swiper-slide">
+                                        <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i></p>
+                                        <a href="">
+                                            <p>중앙탑사적공원</p>
+                                        </a>
+                                        <p>야경, 맛집<span>거리 : 8km</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href=""><img src="img/cave.jpg" alt=""></a>
+                                    <div class="travel swiper-slide">
+                                        <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i></p>
+                                        <a href="">
+                                            <p>활옥동굴</p>
+                                        </a href="">
+                                        <p>동굴, 카약<span>거리 : 5km</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href=""><img src="img/cave.jpg" alt=""></a>
+                                    <div class="travel swiper-slide">
+                                        <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i></p>
+                                        <a href="">
+                                            <p>충주 식물원</p>
+                                        </a>
+                                        <p>카페, 식물원<span>거리 : 10km</span></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -562,7 +639,7 @@
                 <div class="titleBox">
                     <ul>
                         <li>Espresso</li>
-                        <li>Blended</li>
+                        <li>latte</li>
                         <li>Cappucino</li>
 
                     </ul>
@@ -588,19 +665,19 @@
                         </ul>
                         <ul class="menu">
                             <li>
-                                <div><img src="img/cafe latte.jpg" alt="" width="275px" height="250px"></div>
+                                <div><img src="img/banilla_latte.png" alt="" width="275px" height="250px"></div>
+                                <h3>연유라떼</h3>
+                                <p>연유의 진한 달콤함과 부드러운 우유가 어우러져 깊고 풍부한 맛을 즐길 수 있는 연유라떼</p>
+                            </li>
+                            <li>
+                                <div><img src="img/chocolatte.png" alt="" width="275px" height="250px"></div>
+                                <h3>초코라떼</h3>
+                                <p>진한 초콜릿 향이 우유와 함께 조화를 이루어 달콤하면서도 풍성한 맛이 느껴지는 초코라떼</p>
+                            </li>
+                            <li>
+                                <div><img src="img/cafelatte.jpg" alt="" width="275px" height="250px"></div>
                                 <h3>카페라떼</h3>
-                                <p>신선한 원두의 깊은 풍미와 깔끔한 맛<br>을 즐길 수 있는 아메리카노</p>
-                            </li>
-                            <li>
-                                <div><img src="img/americano.png" alt="" width="275px" height="250px"></div>
-                                <h3>아메리카노</h3>
-                                <p>신선한 원두의 깊은 풍미와 깔끔한 맛<br>을 즐길 수 있는 아메리카노</p>
-                            </li>
-                            <li>
-                                <div><img src="img/americano.png" alt="" width="275px" height="250px"></div>
-                                <h3>아메리카노</h3>
-                                <p>신선한 원두의 깊은 풍미와 깔끔한 맛<br>을 즐길 수 있는 아메리카노</p>
+                                <p>고소한 우유의 크리미한 질감과 은은하게 퍼지는 에스프레소의 쌉쌀함이 균형을 이룬 카페라떼</p>
                             </li>
                         </ul>
                         <ul class="menu">
@@ -622,26 +699,44 @@
                         </ul>
                     </div>
                 </div>
-                <div class="mobilebox">
-                    <div class="mobile_img">
-                        <img src="img/americano.png" alt="">
-                    </div>
-                    <div class="mobile_txt">
-                        <h2>오늘의 커피</h2>
-                        <h3>아메리카노</h3>
-                        <p>충주커피박물관만의 특별한 원두로 로스팅한</p>
-                        <p>아메리카노의 깊고 진한 풍미와 함께</p>
-                        <p>박물관에서 특별한 경험을 즐겨보세요!</p>
-                        <span>자세히보기</span>
-                    </div>
-
-                </div>
             </div>
         </section>
-        <footer>
-            <p>Copyright 2024. 성재현. All rights reserved.</p>
-        </footer>
+
     </div>
+
+
+    <header class="mobile_header">
+        <div>
+            <span class="menu"><i class="fa-solid fa-bars"></i></span>
+            <h2>충주커피박물관</h2>
+            <span class="search"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+    </header>
+
+    <div class="mobile_wrap">
+        <div class="mobile_gallery">
+            <h2>포토갤러리</h2>
+            <div><img src="img/gallery1.jpeg" alt=""></div>
+        </div>
+        <div class="mobile_box">
+            <div class="mobile_img">
+                <img src="img/americano.png" alt="">
+            </div>
+            <div class="mobile_txt">
+                <h3>오늘의 커피를 소개합니다</h2>
+                    <h2>아메리카노</h2>
+                    <p>충주커피박물관만의 특별한 원두로 로스팅한</p>
+                    <p>아메리카노의 깊고 진한 풍미와 함께</p>
+                    <p>박물관에서 특별한 경험을 즐겨보세요!</p>
+                    <span>자세히보기</span>
+            </div>
+
+        </div>
+        <div class=""></div>
+    </div>
+    <footer>
+        <p>Copyright 2024. 성재현. All rights reserved.</p>
+    </footer>
     <style>
         /* 예약시스템 캘린더 설정 */
         .ui-datepicker-header {
