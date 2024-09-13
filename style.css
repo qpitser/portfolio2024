@@ -861,15 +861,15 @@ li {
     opacity: 0;
     left: 0;
     top: 0;
-    z-index: -1;
 }
 
 .popup .popup_in {
-    width: 60%;
+    width: 70%;
     height: 70%;
-    position: relative;
+    position: absolute;
     left: 20%;
-    top: 15%;
+    top: 20%;
+    background-color: #fff;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -877,7 +877,6 @@ li {
 .popup .popup_in img {
     width: 100%;
     position: absolute;
-    left: 50%;
     height: auto;
-    margin-left: -500px;
+    background-position: center;
 }
