@@ -841,11 +841,13 @@ header {}
 .online .imgBox li:nth-child(2) {
     position: absolute;
     left: 100%;
+    display: none;
 }
 
 .online .imgBox li:nth-child(3) {
     position: absolute;
     left: 100%;
+    display: none;
 }
 
 /* 주변관광지 설정 */
