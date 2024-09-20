@@ -163,6 +163,17 @@ $(document).ready(function () {
 
     });
 
+    $('.info').mouseenter(function () {
+        $('.scrolldown').css({'display':'none'})
+
+    })
+
+    $('.info').mouseleave(function () {
+        $('.scrolldown').css({'display':'flex'})
+
+    })
+
+
 
     $('.menu ul li').click(function () {
         var i = $(this).index()
@@ -307,7 +318,7 @@ $(document).ready(function () {
 
     })
 
-   
+
 
 
 

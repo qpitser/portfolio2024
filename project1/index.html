@@ -26,18 +26,37 @@
 
     <script>
 
-const swiper = new Swiper('.swiper-container', {
-      loop: true, // 무한 반복
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+        const swiper = new Swiper('.swiper-container', {
+            loop: true, // 무한 반복
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
         $(document).ready(function () {
+
+            // 모달 요소 가져오기
+            var modal = $('#popupModal');
+            var modalImg = $('#popupImage');
+            var captionText = $('#caption');
+
+            // 이미지 클릭 시 이벤트 처리
+            $('.popup-img').click(function (event) {
+                event.preventDefault();  // 링크 기본 동작 막기
+                modal.css('display', 'block');
+                modalImg.attr('src', $(this).attr('src')); // 클릭된 이미지 소스를 모달 이미지로 설정
+            });
+
+            // 닫기 버튼 기능
+            $('.close').click(function () {
+                modal.css('display', 'none');
+            });
+
+
 
             $('.cafe .titleBox ul li').click(function () {
                 var i = $(this).index()
@@ -77,12 +96,19 @@ const swiper = new Swiper('.swiper-container', {
             })
 
             $('.notice_inner .titleBox li').click(function (e) {
+                var i = $(this).index()
+                console.log(i)
+                i++;
 
                 e.preventDefault()
+                $('.listBox div').eq(i-1).css({'display':'none'})
+                $('.listBox div').eq(i-2).css({'display':'none'})
+                $('.listBox div').eq(i+1).css({'display':'none'})
+                $('.listBox div').eq(i+2).css({'display':'none'})
+                $('.listBox div').eq(i).css({'display':'flex'})
                 $('.titleBox li').removeClass('on');
                 $(this).addClass('on');
             })
-
 
         })
         $(function () {
@@ -101,7 +127,7 @@ const swiper = new Swiper('.swiper-container', {
                 }
             });
 
-            
+
 
 
 
@@ -196,31 +222,38 @@ const swiper = new Swiper('.swiper-container', {
                 <ul>
                     <li>
                         <a href="">
-                            <img src="img/gallery1.jpeg" alt="갤러리1" width="400px" height="200px">
+                            <img src="img/gallery1.jpeg" alt="갤러리1" width="400px" height="200px" class="popup-img">
                         </a>
                         <a href="">
-                            <img src="img/gallery2.jpg" alt="갤러리2" width="195px" height="200px">
+                            <img src="img/gallery2.jpg" alt="갤러리2" width="195px" height="200px" class="popup-img">
                         </a>
                         <a href="">
-                            <img src="img/gallery3.jpg" alt="갤러리3" width="195px" height="200px">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="img/gallery4.jpg" alt="갤러리4" width="400px" height="405px">
+                            <img src="img/gallery3.jpg" alt="갤러리3" width="195px" height="200px" class="popup-img">
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <img src="img/gallery5.jpeg" alt="갤러리5" width="400px" height="200px">
+                            <img src="img/gallery4.jpg" alt="갤러리4" width="400px" height="405px" class="popup-img">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/gallery5.jpeg" alt="갤러리5" width="400px" height="200px" class="popup-img">
                         </a>
                         <a href="">
-                            <img src="img/gallery6.jpg" alt="갤러리6" width="400px" height="200px">
+                            <img src="img/gallery6.jpg" alt="갤러리6" width="400px" height="200px" class="popup-img">
                         </a>
                     </li>
 
 
                 </ul>
+            </div>
+
+            <!-- 모달 창 구조 -->
+            <div id="popupModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="popupImage">
+                <div id="caption"></div>
             </div>
 
         </section>
@@ -446,7 +479,7 @@ const swiper = new Swiper('.swiper-container', {
                         </ul>
                         <div class="listBox">
                             <div>
-                                <ul>
+                                <ul class="listBox_inner">
                                     <li><a href="">3.1(금) 삼일절 정상운영</a></li>
                                     <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
                                     <li><a href="">2.14(수) 임시휴무</a></li>
@@ -456,33 +489,33 @@ const swiper = new Swiper('.swiper-container', {
                                 </ul>
                             </div>
                             <div>
+                                <ul class="listBox_inner">
+                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
+                                    <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
+                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
+                                    <li><a href="">5.15(수) 부처님 오신날 정상운영</a></li>
+                                    <li><a href="">5.6(월) 대체공휴일 정상운영</a></li>
+                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
+                                </ul>
+                            </div>
+                            <div>
                                 <ul>
                                     <li><a href="">3.1(금) 삼일절 정상운영</a></li>
-                                    <li><a href="">2.14(수) 임시휴무</a></li>
+                                    <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
                                     <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
+                                    <li><a href="">5.15(수) 부처님 오신날 정상운영</a></li>
+                                    <li><a href="">5.6(월) 대체공휴일 정상운영</a></li>
+                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <ul>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
-                                    <li><a href=""></a></li>
+                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
+                                    <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
+                                    <li><a href="">2.14(수) 임시휴무</a></li>
+                                    <li><a href="">[전시] 커피 마스터클래스: 향과 맛의 여행 특별 해설 참여자 모집</a href=""></li>
+                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
+                                    <li><a href="">[전시] 커피 원두 및 역사 특별기획전 안내</a></li>
                                 </ul>
                             </div>
                         </div>
