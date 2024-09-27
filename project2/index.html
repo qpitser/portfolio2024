@@ -48,7 +48,7 @@
     <div class="mainpage">
         <section>
             <video autoplay muted loop>
-                <source src="img/video4.mp4" type="video/mp4">
+                <source src="img/video/video4.mp4" type="video/mp4">
             </video>
         </section>
 
@@ -68,7 +68,6 @@
                 </div>
                 <div class="imgBox">
                     <img src="img/adver2.jpg" alt="">
-                    <img src="img/adver8.jpg" alt="">
                 </div>
             </div>
 
@@ -77,8 +76,8 @@
 
             <h2>대한민국을 대표하는 태극전사들과 함께 파워에이드를 즐겨보자!</h2>
             <div class="slider_container">
-                <div class="korea_inner">
-                    <div class="korea_inner_sangwook">
+                <div class="korea_inner" >
+                    <div class="korea_inner_wrap on" data-video="img/video/video2.mp4">
                         <div class="imgBox">
                             <img src="img/sangwook.jpg" alt="">
                         </div>
@@ -89,7 +88,7 @@
                             <h3>세계랭킹 8위</h3>
                         </div>
                     </div>
-                    <div class="korea_inner_yubin">
+                    <div class="korea_inner_wrap" data-video="img/video/video1.mp4">
                         <div class="imgBox">
                             <img src="img/yubin.jpg" alt="">
                         </div>
@@ -100,7 +99,7 @@
                             <h3>여자 복식 세계랭킹 2위</h3>
                         </div>
                     </div>
-                    <div class="korea_inner_sunwoo">
+                    <div class="korea_inner_wrap" data-video="img/video/video3.mp4">
                         <div class="imgBox">
                             <img src="img/sunwoo.jpg" alt="">
                         </div>
@@ -110,9 +109,18 @@
                             <h3>2022 항저우 아시안게임 금메달</h3>
                         </div>
                     </div>
-            </div class="slider_container">
+            </div>
+            
+                    <!-- 비디오 플레이어 -->
+                    <div class="video_player" id="videoPlayer">
+                        <video autoplay muted loop>
+                            <source id="videoSource" src="" type="video/mp4">
+                        </video>
+                        <span class="close_video"><i class="fa-solid fa-xmark"></i></span>
+                    </div>
 
         </section>
+        
         <section>
             <h1>Brand</h1>
             <p>오랜기간동안 국민과 함께해온 파워에이드의 다양한 맛을 느껴볼 수 있습니다.</p>

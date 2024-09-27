@@ -21,8 +21,8 @@
     <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 
     <!-- swiper.js cdn 연결 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
 
@@ -44,7 +44,7 @@
             var modalImg = $('#popupImage');
             var captionText = $('#caption');
 
-            // 이미지 클릭 시 이벤트 처리
+            // 이미지 클릭 시 이벤트 처리   
             $('.popup-img').click(function (event) {
                 event.preventDefault();  // 링크 기본 동작 막기
                 modal.css('display', 'block');
@@ -64,6 +64,8 @@
                 $('.menu').eq(i - 2).css({ 'display': 'none' })
                 $('.menu').eq(i + 1).css({ 'display': 'none' })
                 $('.menu').eq(i).css({ 'display': 'flex' })
+                $('.menu_coffee').removeClass('on')
+                $('.menu_coffee').eq(i).addClass('on')
 
             })
 
@@ -98,17 +100,143 @@
             $('.notice_inner .titleBox li').click(function (e) {
                 var i = $(this).index()
                 console.log(i)
-                i++;
 
                 e.preventDefault()
-                $('.listBox div').eq(i-1).css({'display':'none'})
-                $('.listBox div').eq(i-2).css({'display':'none'})
-                $('.listBox div').eq(i+1).css({'display':'none'})
-                $('.listBox div').eq(i+2).css({'display':'none'})
-                $('.listBox div').eq(i).css({'display':'flex'})
+                $('.notice_inner .listBox div').removeClass('on')
+                $('.notice_inner .listBox div').eq(i).addClass('on')
                 $('.titleBox li').removeClass('on');
                 $(this).addClass('on');
             })
+
+            $('.inner li').on('mouseenter', function () {
+                // 각 메뉴 li의 left 위치와 너비를 가져옵니다.
+                const $menuItem = $(this);
+                const itemLeft = $menuItem.position().left;
+                const itemWidth = $menuItem.outerWidth();
+
+                // 마커의 위치값을 계산합니다.
+                const centerValue = itemLeft + itemWidth / 2;
+
+                // 마커를 움직여 메뉴 li의 가운데로 위치시킵니다.
+                $('.marker').css('--marker-translate', centerValue + 'px');
+            });
+
+
+            // 예약시스템 내부 값 설정
+
+            $('.form_in').find('button').click(function (e) {
+                e.preventDefault();
+                // 날짜를 찾아오기
+                let selectDate = $('#datepicker').datepicker('getDate')
+                let selectYear = selectDate.getFullYear()
+                let selectMon = selectDate.getMonth() + 1
+                let selectDay = selectDate.getDate()
+
+                // 인원수불러오기
+                let people = $('#people').val()
+                // 프로그램명 불러오기
+                let program = $('#program option:selected').text()
+                let phone = $('#phone').val()
+
+                $('.popup_in li').eq(0).find('span').text(program)
+                $('.popup_in li').eq(1).find('span').text(selectYear + '년 ' + selectMon + '월 ' + selectDay + '일')
+                $('.popup_in li').eq(2).find('span').text(people)
+                $('.popup_in li').eq(3).find('span').text(phone)
+
+                $('.popup_system').css({ 'display': 'flex' })
+
+
+            })
+
+            $('.close_popup').click(function () {
+
+                $('.popup_system').css({ 'display': 'none' })
+
+            })
+
+            $('.close_ok').click(function () {
+
+                $('.popup_system').css({ 'display': 'none' })
+            })
+
+            $('.experience .imgBox').click(function (e) {
+                e.preventDefault()
+                // 클릭한 링크의 href 속성에 맞는 섹션으로 이동
+                const $targetElement = $(target);
+
+                // 대상 요소가 존재하는지 확인 후 스크롤 이동
+                if ($targetElement.length) {
+                    $('html, body').animate({
+                        scrollTop: $targetElement.offset().top
+                    }, 600);
+                } else {
+                    console.error("해당 타겟이 존재하지 않습니다: ", target);
+                }
+            })
+
+            $('.handdrip_exp').mouseenter(function () {
+                $(this).css({ 'opacity': '0.6' })
+                $('.wrap_exp .imgBox p').css({ 'display': 'block' })
+            })
+
+            $('.handdrip_exp').mouseleave(function () {
+                $(this).css({ 'opacity': '1' })
+                $('.wrap_exp .imgBox p').css({ 'display': 'none' })
+            })
+
+            $('.waksta_exp').mouseenter(function () {
+                $(this).css({ 'opacity': '0.6' })
+                $('.wrap_exp .imgBox_001 p').css({ 'display': 'block' })
+            })
+
+            $('.waksta_exp').mouseleave(function () {
+                $(this).css({ 'opacity': '0.6' })
+                $('.wrap_exp .imgBox_001 p').css({ 'display': 'none' })
+            })
+
+            $('.custom_exp').mouseenter(function () {
+                $(this).css({ 'opacity': '0.6' })
+                $('.wrap_exp .imgBox p').css({ 'display': 'block' })
+            })
+
+            $('.custom_exp').mouseleave(function () {
+                $(this).css({ 'opacity': '1' })
+                $('.wrap_exp .imgBox p').css({ 'display': 'none' })
+            })
+
+
+            var ii = 0;
+            setInterval(function () {
+
+                ii++;
+                if (ii == 3) ii = 0
+
+
+
+                $('.online_slide li').eq(ii - 1).stop().animate({ 'opacity': '0' }, 800);
+                $('.online_slide li').eq(ii).stop().animate({ 'opacity': '1' }, 800)
+
+            }, 3000);
+            
+
+            const swiper = new Swiper('.swiper', {
+
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+            });
 
         })
         $(function () {
@@ -257,7 +385,7 @@
             </div>
 
         </section>
-        <section>
+        <section id="section3">
             <h1>예약시스템</h1>
             <div class="system">
                 <div class="form">
@@ -265,7 +393,7 @@
                         <div class="form_in">
                             <div>
                                 <label for="">프로그램명</label>
-                                <select name="" id="">
+                                <select name="" id="program">
                                     <option value="">프로그램을 선택해주세요</option>
                                     <option value="">핸드드립 체험</option>
                                     <option value="">왁스타블렛 만들기</option>
@@ -278,13 +406,13 @@
                             </div>
                             <div>
                                 <label for="">인원</label>
-                                <input type="number" min="1" max="10" value="1">
+                                <input type="number" min="1" max="10" value="1" id="people">
                             </div>
                             <div>
                                 <label for="">전화번호</label>
-                                <input type="text" placeholder="010-0000-0000">
+                                <input type="text" placeholder="010-0000-0000" id="phone">
                             </div>
-                            <button>예약하기</button>
+                            <button class="reservation">예약하기</button>
                         </div>
 
                     </form>
@@ -338,6 +466,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="popup_system">
+                <div class="popup_in">
+                    <h2>예약이 완료되었습니다!</h2>
+                    <ul>
+                        <li class="program">프로그램명 : <span></span></li>
+                        <li class="day">예약날짜 : <span></span></li>
+                        <li class="person">인원 : <span></span>명</li>
+                        <li class="phoneN">전화번호 : <span></span></li>
+                    </ul>
+                    <span class="close_popup"><i class="fa-solid fa-xmark"></i></span>
+                    <div class="close_ok">확인</div>
+                </div>
+
             </div>
         </section>
         <section>
@@ -470,52 +612,54 @@
                 <div class="notice_inner">
                     <h2>공지사항</h2>
                     <div class="txtBox">
-                        <span><a href="">더보기</a></span>
-                        <ul class="titleBox">
-                            <li class="on"><a href="">전체</a></li>
-                            <li><a href="">공지</a></li>
-                            <li><a href="">전시행사</a></li>
-                            <li><a href="">보도자료</a href=""></li>
-                        </ul>
+                        <div class="inner">
+                            <ul class="titleBox">
+                                <li class="on"><a href="">전체</a></li>
+                                <li><a href="">공지</a></li>
+                                <li><a href="">전시행사</a></li>
+                                <li><a href="">보도자료</a href=""></li>
+                            </ul>
+                            <span class='marker'></span>
+                        </div>
                         <div class="listBox">
-                            <div>
-                                <ul class="listBox_inner">
-                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
-                                    <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
-                                    <li><a href="">2.14(수) 임시휴무</a></li>
-                                    <li><a href="">[전시] 커피 마스터클래스: 향과 맛의 여행 특별 해설 참여자 모집</a href=""></li>
-                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
-                                    <li><a href="">[전시] 커피 원두 및 역사 특별기획전 안내</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul class="listBox_inner">
-                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
-                                    <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
-                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
-                                    <li><a href="">5.15(수) 부처님 오신날 정상운영</a></li>
-                                    <li><a href="">5.6(월) 대체공휴일 정상운영</a></li>
-                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
-                                    <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
-                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
-                                    <li><a href="">5.15(수) 부처님 오신날 정상운영</a></li>
-                                    <li><a href="">5.6(월) 대체공휴일 정상운영</a></li>
-                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
-                                </ul>
-                            </div>
-                            <div>
+                            <div class="listBox_inner on">
                                 <ul>
                                     <li><a href="">3.1(금) 삼일절 정상운영</a></li>
                                     <li><a href="">[전시] 체험전시관 영·유아 체험존 임시휴관 안내(4/2 ~ 정상운영 실시)</a></li>
                                     <li><a href="">2.14(수) 임시휴무</a></li>
                                     <li><a href="">[전시] 커피 마스터클래스: 향과 맛의 여행 특별 해설 참여자 모집</a href=""></li>
                                     <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
-                                    <li><a href="">[전시] 커피 원두 및 역사 특별기획전 안내</a></li>
+                                    <li><a href="">커피의 향기, 역사를 만나다 - 충주커피박물관 개관</a></li>
+                                </ul>
+                            </div>
+                            <div class="listBox_inner">
+                                <ul>
+                                    <li><a href="">9.19(목) ~ 9.20(금) 임시휴무</a></li>
+                                    <li><a href="">5.15(수) 부처님 오신날 정상운영</a></li>
+                                    <li><a href="">5.6(월) 대체공휴일 정상운영</a></li>
+                                    <li><a href="">3.1(금) 삼일절 정상운영</a></li>
+                                    <li><a href="">2.14(수) 임시휴무</a></li>
+                                    <li><a href="">2.9(금) ~ 2.12(월) 설날 연휴 정상운영</a></li>
+                                </ul>
+                            </div>
+                            <div class="listBox_inner">
+                                <ul>
+                                    <li><a href="">[전시] 커피의 기원: 한 잔의 시작</a></li>
+                                    <li><a href="">[전시] 커피 로스팅의 예술: 원두에서 향기까지</a></li>
+                                    <li><a href="">[전시] 세계 커피 여행: 각국의 커피 문화 탐방</a></li>
+                                    <li><a href="">[전시] 커피와 인류 역사: 한 잔의 변화</a></li>
+                                    <li><a href="">[전시] 커피 기구의 진화: 시간 속 도구들</a></li>
+                                    <li><a href="">[전시] 커피와 예술의 만남: 창작과 영감의 이야기</a></li>
+                                </ul>
+                            </div>
+                            <div class="listBox_inner">
+                                <ul>
+                                    <li><a href="">커피의 향기, 역사를 만나다 - 충주커피박물관 개관</a></li>
+                                    <li><a href="">충주에서 만나는 커피 문화의 모든 것, 커피박물관 오픈</a></li>
+                                    <li><a href="">충주커피박물관, 커피 한 잔에 담긴 세계여행 시작!</a></li>
+                                    <li><a href="">충주커피박물관, 커피의 과거와 미래를 잇다</a href=""></li>
+                                    <li><a href="">커피 애호가들의 성지, 충주커피박물관의 문이 열리다</a></li>
+                                    <li><a href="">충주커피박물관, 커피로 빚은 문화와 예술의 향연</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -524,26 +668,21 @@
                 </div>
                 <div class="online">
                     <h2>온라인 전시관</h2>
-                    <ul class="slide_number">
-                        <li><</li>
-                        <li><span>1</span>/3</li>
-                        <li>></li>
-                    </ul>
                     <div class="imgBox">
                         <ul class="online_slide">
                             <li><a href="">
                                     <div>
-                                        <img src="img/online.jpg" alt="">
+                                        <img src="img/online.jpg" alt="1">
                                         <div class="online_txt1">커피 문화의 발견<br>세계 각지의 풍부한 유산</div>
                                     </div>
 
                                 </a></li>
                             <li><a href="">
-                                    <img src="img/online2.jpg" alt="">
+                                    <img src="img/online2.jpg" alt="2">
                                     <div class="online_txt2">커피 원두와 역사의 비밀<br>특별기획전 소식</div>
                                 </a></li>
                             <li><a href="">
-                                    <img src="img/online3.jpg" alt="">
+                                    <img src="img/online3.jpg" alt="3">
                                     <div class="online_txt3">커피 향의 세계로<br> 맛과 향의 발견</div>
                                 </a></li>
                         </ul>
@@ -557,53 +696,75 @@
                 <div class="txtBox">
                     <h2><span>주변</span>관광지안내</h2>
                     <p>주변관광지를 소개합니다.</p>
-                    <ul>
-                        <li><a><i class="fa-solid fa-angle-left"></a></i></li>
-                        <li><a><i class="fa-solid fa-angle-right"></a></i></li>
+                    <ul class="navigation">
+                        <li class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></a></li>
+                        <li class="swiper-button-prev"><i class="fa-solid fa-angle-right"></i></a></li>
                     </ul>
                 </div>
                 <div class="imgBox">
                     <h2>주변관광지안내</h2>
-                    <div class="swiper_container">
-                        <div class="swiper_wrapper">
-                            <ul>
-                                <li>
-                                    <a href=""><img src="img/travel.jpg" alt=""></a href="">
-                                    <div class="travel swiper-slide">
-                                        <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                                class="fa-solid fa-star"></i></p>
-                                        <a href="">
-                                            <p>중앙탑사적공원</p>
-                                        </a>
-                                        <p>야경, 맛집<span>거리 : 8km</span></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href=""><img src="img/cave.jpg" alt=""></a>
-                                    <div class="travel swiper-slide">
-                                        <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                                class="fa-solid fa-star"></i></p>
-                                        <a href="">
-                                            <p>활옥동굴</p>
-                                        </a href="">
-                                        <p>동굴, 카약<span>거리 : 5km</span></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href=""><img src="img/cave.jpg" alt=""></a>
-                                    <div class="travel swiper-slide">
-                                        <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                                class="fa-solid fa-star"></i></p>
-                                        <a href="">
-                                            <p>충주 식물원</p>
-                                        </a>
-                                        <p>카페, 식물원<span>거리 : 10km</span></p>
-                                    </div>
-                                </li>
-                            </ul>
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href=""><img src="img/travel.jpg" alt=""></a href="">
+                                <div class="travel">
+                                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i></p>
+                                    <a href="">
+                                        <p>중앙탑사적공원</p>
+                                    </a>
+                                    <p>야경, 맛집<span>거리 : 8km</span></p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href=""><img src="img/cave.jpg" alt=""></a>
+                                <div class="travel">
+                                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i></p>
+                                    <a href="">
+                                        <p>활옥동굴</p>
+                                    </a href="">
+                                    <p>동굴, 카약<span>거리 : 5km</span></p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href=""><img src="img/garden.jpg" alt=""></a>
+                                <div class="travel">
+                                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i></p>
+                                    <a href="">
+                                        <p>충주 우림정원</p>
+                                    </a>
+                                    <p>카페, 식물원<span>거리 : 10km</span></p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href=""><img src="img/travel3.jpg" alt=""></a>
+                                <div class="travel">
+                                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i></p>
+                                    <a href="">
+                                        <p>탄금대</p>
+                                    </a>
+                                    <p>산책로, 자연<span>거리 : 6km</span></p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href=""><img src="img/travel4.jpg" alt=""></a>
+                                <div class="travel">
+                                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i></p>
+                                    <a href="">
+                                        <p>충주호 크루즈</p>
+                                    </a>
+                                    <p>배, 풍경<span>거리 : 15km</span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -618,7 +779,9 @@
                 <div>
                     <div class="wrap_exp" data-scroll>
                         <div class="imgBox">
-                            <div><a href=""><img src="img/how_handdrip.jpg" alt=""></a></div>
+                            <div><a href="#section3"><img src="img/how_handdrip.jpg" alt="" class="handdrip_exp"></a>
+                            </div>
+                            <p>체험 예약하기</p>
                         </div>
                         <div class="txtBox_inner">
                             <div class="txtBox">
@@ -636,7 +799,8 @@
                     <div class="wrap_exp" data-scroll>
 
                         <div class="imgBox_001">
-                            <div><a href=""><img src="img/gallery4.jpg" alt=""></a></div>
+                            <div><a href=""><img src="img/gallery4.jpg" alt="" class="waksta_exp"></a></div>
+                            <p>체험 예약하기</p>
                         </div>
                         <div class="txtBox_001">
                             <h3><i class="fa-solid fa-leaf"></i>왁스타블렛 만들기</h3>
@@ -651,7 +815,8 @@
                 <div>
                     <div class="wrap_exp" data-scroll>
                         <div class="imgBox">
-                            <div><a href=""><img src="img/how_perpume.jpg" alt=""></a></div>
+                            <div><a href=""><img src="img/how_perpume.jpg" alt="" class="custom_exp"></a></div>
+                            <p>체험 예약하기</p>
                         </div>
                         <div class="txtBox">
                             <h3><i class="fa-solid fa-leaf"></i>커스텀 향수 만들기</h3>
@@ -671,9 +836,9 @@
             <div class="cafe">
                 <div class="titleBox">
                     <ul>
-                        <li>Espresso</li>
-                        <li>latte</li>
-                        <li>Cappucino</li>
+                        <li class="menu_coffee on">Espresso</li>
+                        <li class="menu_coffee">latte</li>
+                        <li class="menu_coffee">Cappucino</li>
 
                     </ul>
                 </div>
