@@ -241,6 +241,7 @@ section>h2 {
 .korea_inner .imgBox img {
     width: 350px;
     height: 350px;
+    cursor: pointer;
 }
 
 /* 선수 소개 설정 */

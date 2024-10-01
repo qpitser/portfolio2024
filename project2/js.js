@@ -313,16 +313,6 @@ $(document).ready(function () {
     // 슬라이드 시작
     startSlide();
 
-    // 특정 구간에서 마우스 호버 시 슬라이드 멈춤
-    $('.korea_inner_wrap').hover(
-        function() {
-            clearInterval(slideInterval); // 슬라이드 멈춤
-        },
-        function() {
-            startSlide(); // 슬라이드 재시작
-        }
-    );
-
     // 태극전사 광고 비디오 재생 설정
 
     $('.korea_inner .imgBox').click(function() {
